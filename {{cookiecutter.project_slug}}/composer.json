@@ -1,0 +1,47 @@
+{
+    "name": "{{ cookiecutter.composer_package_name }}",
+    "type": "{{ cookiecutter.project_type }}",
+    "description": "{{ cookiecutter.project_short_description }}",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "{{ cookiecutter.full_name }}",
+            "email": "{{ cookiecutter.email }}"
+        }
+    ],
+    "require": {
+        "php": "^7.4 || ~8.0.0"
+    },
+    "require-dev": {
+        "phpstan/extension-installer": "^1.1",
+        "phpstan/phpstan": "^0.12.63",
+        "phpstan/phpstan-phpunit": "^0.12.17",
+        "phpstan/phpstan-strict-rules": "^0.12.7",
+        "phpunit/phpunit": "^9.5",
+        "psalm/plugin-phpunit": "^0.15.0",
+        "vimeo/psalm": "^4.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "{{ cookiecutter.psr4_namespace.replace('\\', '\\\\') }}\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "{{ cookiecutter.psr4_namespace.replace('\\', '\\\\') }}\\Tests\\": "tests"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "scripts": {
+        "test": [
+            "@phpstan",
+            "@psalm",
+            "@phpunit"
+        ],
+        "phpunit": "phpunit",
+        "phpstan": "phpstan analyse",
+        "psalm": "psalm"
+    }
+}
