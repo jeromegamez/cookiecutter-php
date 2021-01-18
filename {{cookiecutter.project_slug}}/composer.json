@@ -40,8 +40,8 @@
             "@psalm",
             "@phpunit"
         ],
-        "phpunit": "phpunit",
-        "phpstan": "phpstan analyse",
-        "psalm": "psalm"
+        "phpunit": "vendor/bin/phpunit",
+        "phpstan": "vendor/bin/phpstan analyse",
+        "psalm": "vendor/bin/psalm"
     }
 }
