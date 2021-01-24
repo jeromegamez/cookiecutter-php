@@ -6,7 +6,7 @@
 
 * Automated [Composer] Setup
 * Testing setup with [PHPStan], [Psalm] and [PHPUnit] (`composer test`)
-* (TODO) Ready-to-go GitHub Actions
+* Ready-to-go GitHub Actions
 
 ## Quickstart
 
