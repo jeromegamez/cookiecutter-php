@@ -75,6 +75,6 @@ jobs:
         run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
 
       - name: Run PHPUnit
-        run: vendor/bin/phpunit --coverage-text
+        run: vendor/bin/phpunit --testdox --coverage-text
 
 {% endraw %}
