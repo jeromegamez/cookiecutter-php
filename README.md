@@ -28,6 +28,22 @@ $ cookiecutter gh:jeromegamez/cookiecutter-php
 
 [![asciicast](https://asciinema.org/a/385151.svg)](https://asciinema.org/a/385151)
 
+## User config
+
+If you use this (or other) Cookiecutters a lot, you can override the defaults by having
+a `.cookiecutterrc` file in your home directory:
+
+```yml
+default_context:
+    full_name: "My full name"
+    email: "me@example.com"
+    github_username: "mygithubusername"
+abbreviations:
+    php: https://github.com/jeromegamez/cookiecutter-php
+```
+
+You can find more information at https://cookiecutter.readthedocs.io/en/latest/advanced/user_config.html
+
 [Composer]: https://getcomposer.org/
 [Cookiecutter]: https://github.com/cookiecutter/cookiecutter/
 [Cookiecutter Installation Docs]: https://cookiecutter.readthedocs.io/en/latest/installation.html
