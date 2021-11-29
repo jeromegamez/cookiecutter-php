@@ -35,13 +35,21 @@
         "sort-packages": true
     },
     "scripts": {
-        "test": [
+        "clean": "rm -rf .build && mkdir .build",
+        "phpstan": "vendor/bin/phpstan analyse",
+        "phpunit": "vendor/bin/phpunit",
+        "psalm": "vendor/bin/psalm",
+        "tests": [
             "@phpstan",
             "@psalm",
             "@phpunit"
-        ],
-        "phpunit": "vendor/bin/phpunit",
-        "phpstan": "vendor/bin/phpstan analyse",
-        "psalm": "vendor/bin/psalm"
+        ]
+    },
+    "scripts-descriptions": {
+        "clean": "Recreates ",
+        "phpstan": "Runs static analysis with PHPStan",
+        "phpunit": "Runs tests with PHPUnit",
+        "psalm": "Runs static analysis with Psalm",
+        "tests": "Runs static analysis and test suites"
     }
 }

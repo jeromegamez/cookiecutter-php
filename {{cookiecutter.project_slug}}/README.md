@@ -11,5 +11,5 @@ composer require {{ cookiecutter.composer_package_name }}
 ## Running tests
 
 ```shell
-composer test
+composer run tests
 ```
