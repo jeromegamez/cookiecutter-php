@@ -5,11 +5,11 @@
 ## Installation
 
 ```shell
-$ composer require {{ cookiecutter.composer_package_name }}
+composer require {{ cookiecutter.composer_package_name }}
 ```
 
 ## Running tests
 
 ```shell
-$ composer test
+composer test
 ```
