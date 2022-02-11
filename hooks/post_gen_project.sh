@@ -4,7 +4,8 @@ mkdir -p .build/{phpstan,psalm,phpunit}
 
 composer update
 composer clean
+composer install-tools
 
-git init
+git init -b main
 git add -A
 git commit -m "Initial commit"

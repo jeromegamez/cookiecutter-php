@@ -13,13 +13,7 @@
         "php": "~8.0.0 || ~8.1.0"
     },
     "require-dev": {
-        "phpstan/extension-installer": "^1.1",
-        "phpstan/phpstan": "^1.0",
-        "phpstan/phpstan-phpunit": "^1.0",
-        "phpstan/phpstan-strict-rules": "^1.0",
-        "phpunit/phpunit": "^9.5.10",
-        "psalm/plugin-phpunit": "^0.16.1",
-        "vimeo/psalm": "^4.8.1"
+        "phpunit/phpunit": "^9.5.13"
     },
     "autoload": {
         "psr-4": {
@@ -35,10 +29,14 @@
         "sort-packages": true
     },
     "scripts": {
+        "install-tools": [
+            "composer update --working-dir=tools/phpstan",
+            "composer update --working-dir=tools/psalm"
+        ],
         "clean": "rm -rf .build && mkdir .build",
-        "phpstan": "vendor/bin/phpstan analyse",
+        "phpstan": "tools/phpstan/vendor/bin/phpstan analyse",
         "phpunit": "vendor/bin/phpunit",
-        "psalm": "vendor/bin/psalm",
+        "psalm": "tools/psalm/vendor/bin/psalm",
         "tests": [
             "@phpstan",
             "@psalm",
