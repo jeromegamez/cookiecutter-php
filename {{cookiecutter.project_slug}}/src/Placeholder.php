@@ -15,6 +15,6 @@ final class Placeholder
 
     public function echo(string $value): string
     {
-        return $this->prefix.$value;
+        return $this->prefix . $value;
     }
 }

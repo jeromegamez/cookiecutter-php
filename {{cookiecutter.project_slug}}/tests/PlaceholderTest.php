@@ -7,6 +7,10 @@ namespace {{ cookiecutter.psr4_namespace }}\Tests;
 use {{ cookiecutter.psr4_namespace }}\Placeholder;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @internal
+ * @covers \{{ cookiecutter.psr4_namespace }}\Placeholder
+ */
 final class PlaceholderTest extends TestCase
 {
     private Placeholder $placeholder;
