@@ -5,7 +5,7 @@
 ## Features
 
 * Automated [Composer] Setup
-* Testing setup with [PHPStan], [Psalm] and [PHPUnit] (`composer test`)
+* Testing setup with [PHPStan] and [PHPUnit] (`composer test`)
 * Ready-to-go GitHub Actions
 
 ## Quickstart
@@ -48,5 +48,4 @@ You can find more information at https://cookiecutter.readthedocs.io/en/latest/a
 [Cookiecutter]: https://github.com/cookiecutter/cookiecutter/
 [Cookiecutter Installation Docs]: https://cookiecutter.readthedocs.io/en/latest/installation.html
 [PHPStan]: https://phpstan.org/
-[Psalm]: https://psalm.dev/
 [PHPUnit]: https://phpunit.de/

@@ -64,9 +64,6 @@ jobs:
       - name: Run PHPStan
         run: vendor/bin/phpstan analyse
 
-      - name: Run Psalm
-        run: vendor/bin/psalm --output-format=github
-
       - name: Setup Problem Matchers for PHPUnit
         run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
 

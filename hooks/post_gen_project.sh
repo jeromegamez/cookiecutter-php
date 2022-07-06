@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-mkdir -p .build/{phpstan,psalm,phpunit}
+mkdir -p .build/{phpstan,phpunit}
 
 composer update
 composer clean

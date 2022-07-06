@@ -6,4 +6,3 @@
 /.gitignore                     export-ignore
 /.php-cs-fixer.php              export-ignore
 /phpstan.neon.dist              export-ignore
-/psalm.xml.dist                 export-ignore

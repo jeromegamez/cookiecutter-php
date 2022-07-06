@@ -21,9 +21,7 @@
         "phpstan/phpstan-deprecation-rules": "^1.0",
         "phpstan/phpstan-phpunit": "^1.0",
         "phpstan/phpstan-strict-rules": "^1.1",
-        "phpunit/phpunit": "^9.5.13",
-        "psalm/plugin-phpunit": "^0.16.1",
-        "vimeo/psalm": "^4.20"
+        "phpunit/phpunit": "^9.5.13"
     },
     "autoload": {
         "psr-4": {
@@ -51,10 +49,8 @@
         ],
         "phpstan": "vendor/bin/phpstan analyse",
         "phpunit": "vendor/bin/phpunit",
-        "psalm": "vendor/bin/psalm",
         "test": [
             "@phpstan",
-            "@psalm",
             "@phpunit"
         ]
     },
@@ -63,7 +59,6 @@
         "coding-standards": "Applies coding standards",
         "phpstan": "Runs static analysis with PHPStan",
         "phpunit": "Runs tests with PHPUnit",
-        "psalm": "Runs static analysis with Psalm",
         "test": "Runs static analysis and test suites"
     }
 }
