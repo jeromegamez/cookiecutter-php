@@ -42,11 +42,7 @@
         "sort-packages": true
     },
     "scripts": {
-        "clean": "rm -rf .build && mkdir .build",
-        "coding-standards": [
-            "mkdir -p .build/php-cs-fixer",
-            "vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php --diff --verbose"
-        ],
+        "coding-standards": "vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php --diff --verbose",
         "phpstan": "vendor/bin/phpstan analyse",
         "phpunit": "vendor/bin/phpunit",
         "test": [
@@ -55,7 +51,6 @@
         ]
     },
     "scripts-descriptions": {
-        "clean": "Cleans up the build directory",
         "coding-standards": "Applies coding standards",
         "phpstan": "Runs static analysis with PHPStan",
         "phpunit": "Runs tests with PHPUnit",
