@@ -42,7 +42,7 @@
         "sort-packages": true
     },
     "scripts": {
-        "coding-standards": "vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php --diff --verbose",
+        "cs": "vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php --diff --verbose",
         "phpstan": "vendor/bin/phpstan analyse",
         "phpunit": "vendor/bin/phpunit",
         "test": [
@@ -51,7 +51,7 @@
         ]
     },
     "scripts-descriptions": {
-        "coding-standards": "Applies coding standards",
+        "cs": "Applies coding standards",
         "phpstan": "Runs static analysis with PHPStan",
         "phpunit": "Runs tests with PHPUnit",
         "test": "Runs static analysis and test suites"
