@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
-composer update
+composer update -W
+composer install-dev-tools
 
-git init -b main
+git init
 git add -A
 git commit -m "Initialize project with jeromegamez/cookiecutter-php"
