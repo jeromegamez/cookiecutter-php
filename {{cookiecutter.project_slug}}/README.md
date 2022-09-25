@@ -21,3 +21,7 @@ composer require {{ cookiecutter.composer_package_name }}
 ```shell
 composer run tests
 ```
+
+## License
+
+This project is published under the [MIT License](LICENSE).
