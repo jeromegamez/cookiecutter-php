@@ -2,7 +2,6 @@
 /tools
 /vendor
 
-/.php-cs-fixer.php
 /.phpunit.result.cache
 /.phpunit.xml
 

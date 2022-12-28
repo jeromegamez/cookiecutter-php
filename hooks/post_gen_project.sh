@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 composer update -W
-composer install-dev-tools
 
 git init
 git add -A

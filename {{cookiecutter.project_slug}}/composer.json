@@ -37,15 +37,6 @@
         "sort-packages": true
     },
     "scripts": {
-        "cs": "tools/php-cs-fixer/vendor/bin/php-cs-fixer fix --diff --verbose",
-        "install-dev-tools": [
-            "mkdir --parents .build",
-            "@install-php-cs-fixer"
-        ],
-        "install-php-cs-fixer": [
-            "mkdir --parents tools/php-cs-fixer",
-            "composer require --working-dir=tools/php-cs-fixer beste/php-cs-fixer-config"
-        ],
         "phpstan": "vendor/bin/phpstan analyse",
         "phpunit": "vendor/bin/phpunit",
         "test": [
@@ -54,7 +45,6 @@
         ]
     },
     "scripts-descriptions": {
-        "cs": "Applies coding standards",
         "phpstan": "Runs static analysis with PHPStan",
         "phpunit": "Runs tests with PHPUnit",
         "test": "Runs static analysis and test suites"
