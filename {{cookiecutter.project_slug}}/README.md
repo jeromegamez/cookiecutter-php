@@ -19,7 +19,7 @@ composer require {{ cookiecutter.composer_package_name }}
 ## Running tests
 
 ```shell
-composer run tests
+composer test
 ```
 
 ## License
