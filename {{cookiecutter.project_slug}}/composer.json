@@ -40,16 +40,17 @@
         "sort-packages": true
     },
     "scripts": {
-        "phpstan": "vendor/bin/phpstan analyse",
-        "phpunit": "vendor/bin/phpunit",
-        "test": [
-            "@phpstan",
-            "@phpunit"
+        "analyse": "vendor/bin/phpstan analyse",
+        "analyze": "@analyse",
+        "cs-fix": "vendor/bin/php-cs-fixer fix --diff --verbose",
+        "test": "vendor/bin/phpunit",
+        "test-coverage": [
+            "Composer\\Config::disableProcessTimeout",
+            "XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-html=.build/coverage"
+        ],
+        "check": [
+            "@analyse",
+            "@test"
         ]
-    },
-    "scripts-descriptions": {
-        "phpstan": "Runs static analysis with PHPStan",
-        "phpunit": "Runs tests with PHPUnit",
-        "test": "Runs static analysis and test suites"
     }
 }
