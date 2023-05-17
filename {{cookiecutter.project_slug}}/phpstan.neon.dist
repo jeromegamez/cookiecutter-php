@@ -4,3 +4,6 @@ parameters:
 	paths:
 		- src/
 		- tests/
+
+includes:
+	- vendor/phpstan/phpstan/conf/bleedingEdge.neon
