@@ -9,6 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @internal
+ *
  * @covers \{{ cookiecutter.psr4_namespace }}\Placeholder
  */
 final class PlaceholderTest extends TestCase
@@ -20,7 +21,7 @@ final class PlaceholderTest extends TestCase
         $this->placeholder = new Placeholder('{{ cookiecutter.full_name }} says: ');
     }
 
-    public function testItEchoesAValue(): void
+    public function test_it_echoes_a_value(): void
     {
         self::assertSame('{{ cookiecutter.full_name }} says: Hello', $this->placeholder->echo('Hello'));
     }
