@@ -49,6 +49,7 @@
             "XDEBUG_MODE=coverage vendor/bin/phpunit --testdox --coverage-html=.build/coverage"
         ],
         "check": [
+            "@cs-fix",
             "@analyse",
             "@test"
         ]
