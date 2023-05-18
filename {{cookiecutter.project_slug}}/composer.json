@@ -43,10 +43,10 @@
         "analyse": "vendor/bin/phpstan analyse",
         "analyze": "@analyse",
         "cs-fix": "vendor/bin/php-cs-fixer fix --diff --verbose",
-        "test": "vendor/bin/phpunit",
+        "test": "vendor/bin/phpunit --testdox",
         "test-coverage": [
             "Composer\\Config::disableProcessTimeout",
-            "XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-html=.build/coverage"
+            "XDEBUG_MODE=coverage vendor/bin/phpunit --testdox --coverage-html=.build/coverage"
         ],
         "check": [
             "@analyse",
