@@ -1,7 +1,7 @@
 {
     "name": "{{ cookiecutter.composer_package_name }}",
     "description": "{{ cookiecutter.project_short_description }}",
-    "license": "MIT",
+    "license": "ISC",
     "type": "{{ cookiecutter.project_type }}",
     "authors": [
         {
