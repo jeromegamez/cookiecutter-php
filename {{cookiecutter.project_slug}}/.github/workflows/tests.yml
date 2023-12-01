@@ -1,20 +1,22 @@
 {% raw %}name: Tests
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - '**.php'
-      - 'phpstan.neon.dist'
-      - 'composer.json'
   pull_request:
-    branches:
-      - main
     paths:
-      - '**.php'
-      - 'phpstan.neon.dist'
+      - '.github/workflows/tests.yml'
+      - 'src/**'
+      - 'tests/**'
       - 'composer.json'
+      - 'phpstan.neon.dist'
+  push:
+    branches: ['main']
+    paths:
+      - '.github/workflows/tests.yml'
+      - 'src/**'
+      - 'tests/**'
+      - 'composer.json'
+      - 'phpstan.neon.dist'
+  workflow_dispatch:
 
 jobs:
   test:
