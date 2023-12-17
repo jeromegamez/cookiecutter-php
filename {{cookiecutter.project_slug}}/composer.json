@@ -47,7 +47,7 @@
             "Composer\\Config::disableProcessTimeout",
             "XDEBUG_MODE=coverage vendor/bin/phpunit --testdox --coverage-html=.build/coverage"
         ],
-        "check": [
+        "pre-push": [
             "@cs-fix",
             "@analyse",
             "@test"
