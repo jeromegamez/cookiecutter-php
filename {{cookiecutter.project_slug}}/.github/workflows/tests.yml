@@ -29,6 +29,9 @@ jobs:
         php:
           - "8.2"
           - "8.3"
+        dependencies:
+          - "lowest"
+          - "highest"
 
     env:
       extensions: ctype, dom, intl, json, mbstring, openssl, xml, zip, zlib
@@ -65,7 +68,7 @@ jobs:
 
       - uses: ramsey/composer-install@v2
         with:
-          composer-options: "${{ matrix.composer-options }}"
+          dependency-versions: "${{ matrix.dependencies }}"
 
       - name: Setup Problem Matchers
         run: |
