@@ -1,7 +1,9 @@
 {
     "name": "{{ cookiecutter.composer_package_name }}",
     "description": "{{ cookiecutter.project_short_description }}",
-    "license": "ISC",
+    "license": [
+        "BSD-3-Clause"
+    ],
     "type": "{{ cookiecutter.project_type }}",
     "authors": [
         {
