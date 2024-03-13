@@ -9,7 +9,7 @@ on:
       - 'composer.json'
       - 'phpstan.neon.dist'
   push:
-    branches: ['main']
+    branches: [ $default-branch ]
     paths:
       - '.github/workflows/tests.yml'
       - 'src/**'
