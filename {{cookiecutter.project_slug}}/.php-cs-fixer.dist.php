@@ -2,21 +2,11 @@
 
 declare(strict_types=1);
 
+use Beste\PhpCsFixer\Config\Factory;
+use Beste\PhpCsFixer\Config\RuleSet\Php83;
+
 $finder = PhpCsFixer\Finder::create()->in(__DIR__);
 
-return (new PhpCsFixer\Config())
-    ->setParallelConfig(PhpCsFixer\Runner\Parallel\ParallelConfigFactory::detect())
+return (Factory::fromRuleSet(new Php83()))
     ->setRiskyAllowed(true)
-    ->setRules([
-        '@PER-CS2.0' => true,
-        'no_unused_imports' => true,
-        'ordered_imports' => [
-            'imports_order' => [
-                'class',
-                'function',
-                'const',
-            ],
-            'sort_algorithm' => 'alpha',
-        ],
-    ])
     ->setFinder($finder);
