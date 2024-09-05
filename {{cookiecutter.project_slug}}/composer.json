@@ -12,7 +12,7 @@
         }
     ],
     "require": {
-        "php": "~8.3.0"
+        "php": "~8.3.0 || ~8.4.0"
     },
     "require-dev": {
         "beste/php-cs-fixer-config": "^3.2",
