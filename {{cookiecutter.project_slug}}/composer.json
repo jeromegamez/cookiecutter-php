@@ -15,7 +15,6 @@
         "php": "~8.3.0 || ~8.4.0"
     },
     "require-dev": {
-        "beste/php-cs-fixer-config": "^3.2",
         "shipmonk/dead-code-detector": "^0.2.1",
         "friendsofphp/php-cs-fixer": "^3.64.0",
         "phpstan/extension-installer": "^1.4.3",
@@ -46,7 +45,7 @@
     "scripts": {
         "analyse": "vendor/bin/phpstan analyse",
         "analyze": "@analyse",
-        "cs-fix": "vendor/bin/php-cs-fixer fix --diff --verbose",
+        "cs-fix": "PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer fix --diff --verbose",
         "test": "vendor/bin/phpunit --testdox",
         "test-coverage": [
             "Composer\\Config::disableProcessTimeout",
