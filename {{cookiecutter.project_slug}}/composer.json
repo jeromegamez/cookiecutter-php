@@ -22,7 +22,7 @@
         "phpstan/phpstan-deprecation-rules": "^2.0.3",
         "phpstan/phpstan-phpunit": "^2.0.6",
         "phpstan/phpstan-strict-rules": "^2.0.4",
-        "phpunit/phpunit": "^11.5.20",
+        "phpunit/phpunit": "^12.1.5",
         "shipmonk/composer-dependency-analyser": "^1.8.3",
         "symfony/var-dumper": "^7.2.6"
     },
