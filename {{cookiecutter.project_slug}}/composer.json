@@ -16,7 +16,7 @@
     },
     "require-dev": {
         "shipmonk/dead-code-detector": "^0.12.0",
-        "friendsofphp/php-cs-fixer": "^3.75.0",
+        "friendsofphp/php-cs-fixer": "^3.82.1",
         "phpstan/extension-installer": "^1.4.3",
         "phpstan/phpstan": "^2.1.16",
         "phpstan/phpstan-deprecation-rules": "^2.0.3",
@@ -45,10 +45,10 @@
     "scripts": {
         "project:analyze": "vendor/bin/phpstan analyse",
         "project:lint": [
-            "PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer check --diff --verbose"
+            "vendor/bin/php-cs-fixer check --diff --verbose"
         ],
         "project:lint:fix": [
-            "PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer fix --diff --verbose"
+            "vendor/bin/php-cs-fixer fix --diff --verbose"
         ],
         "project:test:all": [
             "@project:analyze",
