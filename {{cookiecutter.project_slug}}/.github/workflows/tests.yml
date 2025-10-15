@@ -79,4 +79,4 @@ jobs:
         run: vendor/bin/phpstan
 
       - name: Run PHPUnit
-        run: vendor/bin/phpunit --testdox --coverage-text{% endraw %}
+        run: vendor/bin/phpunit --testdox --coverage-text --error-format=github{% endraw %}
