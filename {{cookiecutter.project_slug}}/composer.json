@@ -16,15 +16,15 @@
     },
     "require-dev": {
         "shipmonk/dead-code-detector": "^0.12.4",
-        "friendsofphp/php-cs-fixer": "^3.82.1",
+        "friendsofphp/php-cs-fixer": "^3.89.1",
         "phpstan/extension-installer": "^1.4.3",
-        "phpstan/phpstan": "^2.1.17",
+        "phpstan/phpstan": "^2.1.31",
         "phpstan/phpstan-deprecation-rules": "^2.0.3",
-        "phpstan/phpstan-phpunit": "^2.0.6",
-        "phpstan/phpstan-strict-rules": "^2.0.4",
-        "phpunit/phpunit": "^12.2.6",
+        "phpstan/phpstan-phpunit": "^2.0.7",
+        "phpstan/phpstan-strict-rules": "^2.0.7",
+        "phpunit/phpunit": "^12.4.2",
         "shipmonk/composer-dependency-analyser": "^1.8.3",
-        "symfony/var-dumper": "^7.3.1"
+        "symfony/var-dumper": "^7.3.5"
     },
     "autoload": {
         "psr-4": {
