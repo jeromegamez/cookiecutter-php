@@ -15,16 +15,16 @@
         "php": "~8.4.0 || ~8.5.0"
     },
     "require-dev": {
-        "shipmonk/dead-code-detector": "^0.13.5",
-        "friendsofphp/php-cs-fixer": "^3.89.1",
+        "shipmonk/dead-code-detector": "^0.14.1",
+        "php-cs-fixer/shim": "^3.93.1",
         "phpstan/extension-installer": "^1.4.3",
-        "phpstan/phpstan": "^2.1.31",
+        "phpstan/phpstan": "^2.1.38",
         "phpstan/phpstan-deprecation-rules": "^2.0.3",
-        "phpstan/phpstan-phpunit": "^2.0.7",
-        "phpstan/phpstan-strict-rules": "^2.0.7",
-        "phpunit/phpunit": "^12.4.2",
-        "shipmonk/composer-dependency-analyser": "^1.8.3",
-        "symfony/var-dumper": "^7.3.5"
+        "phpstan/phpstan-phpunit": "^2.0.12",
+        "phpstan/phpstan-strict-rules": "^2.0.8",
+        "phpunit/phpunit": "^13.0.1",
+        "shipmonk/composer-dependency-analyser": "^1.8.4",
+        "symfony/var-dumper": "^8.0.4"
     },
     "autoload": {
         "psr-4": {
