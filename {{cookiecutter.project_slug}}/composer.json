@@ -54,6 +54,7 @@
             "vendor/bin/rector",
             "vendor/bin/php-cs-fixer fix --diff --verbose"
         ],
+        "test": "@test:all",
         "test:all": [
             "@analyze",
             "@lint",
