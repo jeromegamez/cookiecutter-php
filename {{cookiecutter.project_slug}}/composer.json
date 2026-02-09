@@ -16,6 +16,7 @@
     },
     "require-dev": {
         "shipmonk/dead-code-detector": "^0.14.1",
+        "maglnet/composer-require-checker": "^4.20.0",
         "php-cs-fixer/shim": "^3.93.1",
         "phpstan/extension-installer": "^1.4.3",
         "phpstan/phpstan": "^2.1.38",
@@ -68,8 +69,12 @@
             "Composer\\Config::disableProcessTimeout",
             "XDEBUG_MODE=coverage vendor/bin/phpunit --testdox --coverage-text --coverage-html=.build/coverage"
         ],
+        "test:require-checker": [
+            "XDEBUG_MODE=off vendor/bin/composer-require-checker check --config-file=composer-require-checker.json composer.json"
+        ],
         "test:dependencies": [
-            "vendor/bin/composer-dependency-analyser"
+            "vendor/bin/composer-dependency-analyser",
+            "@test:require-checker"
         ]
     }
 }

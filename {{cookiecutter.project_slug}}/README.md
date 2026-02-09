@@ -27,6 +27,7 @@ The full check suite includes:
 - PHPUnit tests
 - PHPStan static analysis
 - Composer Dependency Analyser checks
+- Composer Require Checker checks
 - Rector dry-run
 - PHP CS Fixer check
 
@@ -40,4 +41,11 @@ To apply automatic lint fixes:
 
 ```shell
 composer lint:fix
+```
+
+To run dependency boundary checks directly:
+
+```shell
+composer test:dependencies
+composer test:require-checker
 ```
