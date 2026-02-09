@@ -4,12 +4,14 @@ on:
   pull_request:
     paths:
       - '.github/workflows/tests.yml'
+      - '.roave-backward-compatibility-check.xml'
       - 'src/**'
       - 'tests/**'
       - 'composer.json'
       - '.php-cs-fixer.dist.php'
       - 'composer-dependency-analyser.php'
       - 'composer-require-checker.json'
+      - 'infection.json5.dist'
       - 'phpstan.neon.dist'
       - 'phpunit.dist.xml'
       - 'rector.php'
@@ -17,12 +19,14 @@ on:
     branches: [ main ]
     paths:
       - '.github/workflows/tests.yml'
+      - '.roave-backward-compatibility-check.xml'
       - 'src/**'
       - 'tests/**'
       - 'composer.json'
       - '.php-cs-fixer.dist.php'
       - 'composer-dependency-analyser.php'
       - 'composer-require-checker.json'
+      - 'infection.json5.dist'
       - 'phpstan.neon.dist'
       - 'phpunit.dist.xml'
       - 'rector.php'
