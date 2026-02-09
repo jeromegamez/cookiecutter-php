@@ -29,6 +29,6 @@ return RectorConfig::configure()
     ->withTreatClassesAsFinal()
     ->withFluentCallNewLine()
     ->withSkip([
-        PreferPHPUnitThisCallRector::class
+        PreferPHPUnitThisCallRector::class,
     ])
 ;
