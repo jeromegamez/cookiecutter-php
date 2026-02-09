@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-composer update -W --no-interaction --no-progress
+composer update --with-all-dependencies --no-interaction --no-progress
 
 git init
 git add -A
