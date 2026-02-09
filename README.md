@@ -25,6 +25,20 @@ Generate a new PHP project:
 $ cookiecutter gh:jeromegamez/cookiecutter-php
 ```
 
+## Manual template checks
+
+Use `ant` to generate test projects locally (non-interactive):
+
+```shell
+$ ant -f build.xml generate-test-project
+$ ant -f build.xml generate-test-project-fixture
+```
+
+Generated output:
+
+* `tests/generated/default/my-library` (uses defaults from `cookiecutter.json`)
+* `tests/generated/fixture/example-tools-library` (uses explicit fixture values)
+
 ## Demo
 
 [![asciicast](https://asciinema.org/a/385151.svg)](https://asciinema.org/a/385151)

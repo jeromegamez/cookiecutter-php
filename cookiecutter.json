@@ -1,11 +1,12 @@
 {
-	"full_name": "Jérôme Gamez",
-	"email": "jerome@gamez.name",
-	"github_username": "jeromegamez",
-	"project_name": "My Library",
-	"project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-').replace('_', '-') }}",
-	"project_type": "library",
-	"project_short_description": "A library that does awesome things",
-	"composer_package_name": "{{ cookiecutter.github_username.lower() }}/{{ cookiecutter.project_slug }}",
-	"psr4_namespace": "{{ cookiecutter.composer_package_name.split('/')[0].replace('-', ' ').replace('_', ' ').title().replace(' ', '') }}\\{{ cookiecutter.composer_package_name.split('/')[1].replace('-', ' ').replace('_', ' ').title().replace(' ', '') }}"
+    "full_name": "Jérôme Gamez",
+    "email": "jerome@gamez.name",
+    "github_username": "jeromegamez",
+    "project_name": "My Library",
+    "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-').replace('_', '-') }}",
+    "project_type": "library",
+    "project_short_description": "A library that does awesome things",
+    "composer_package_name": "{{ cookiecutter.github_username.lower() }}/{{ cookiecutter.project_slug }}",
+    "psr4_namespace": "{{ cookiecutter.composer_package_name.split('/')[0].replace('-', ' ').replace('_', ' ').title().replace(' ', '') }}\\{{ cookiecutter.composer_package_name.split('/')[1].replace('-', ' ').replace('_', ' ').title().replace(' ', '') }}",
+    "_copy_without_render": ["tools/*"]
 }
