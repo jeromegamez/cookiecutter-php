@@ -2,7 +2,7 @@
     "name": "{{ cookiecutter.composer_package_name }}",
     "description": "{{ cookiecutter.project_short_description }}",
     "license": [
-        "BSD-3-Clause"
+        "MIT"
     ],
     "type": "{{ cookiecutter.project_type }}",
     "authors": [
