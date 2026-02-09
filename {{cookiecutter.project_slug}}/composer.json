@@ -23,6 +23,8 @@
         "phpstan/phpstan-phpunit": "^2.0.12",
         "phpstan/phpstan-strict-rules": "^2.0.8",
         "phpunit/phpunit": "^13.0.1",
+        "rector/rector": "^2.3.6",
+        "rector/type-perfect": "^2.1.2",
         "shipmonk/composer-dependency-analyser": "^1.8.4",
         "symfony/var-dumper": "^8.0.4"
     },
@@ -43,27 +45,29 @@
         "sort-packages": true
     },
     "scripts": {
-        "project:analyze": "vendor/bin/phpstan analyse",
-        "project:lint": [
+        "analyze": "vendor/bin/phpstan analyse",
+        "lint": [
+            "vendor/bin/rector --dry-run",
             "vendor/bin/php-cs-fixer check --diff --verbose"
         ],
-        "project:lint:fix": [
+        "lint:fix": [
+            "vendor/bin/rector",
             "vendor/bin/php-cs-fixer fix --diff --verbose"
         ],
-        "project:test:all": [
-            "@project:analyze",
-            "@project:lint",
-            "@project:test:unit",
-            "@project:test:dependencies"
+        "test:all": [
+            "@analyze",
+            "@lint",
+            "@test:unit",
+            "@test:dependencies"
         ],
-        "project:test:unit": [
+        "test:unit": [
             "vendor/bin/phpunit --testdox"
         ],
-        "project:test:coverage": [
+        "test:coverage": [
             "Composer\\Config::disableProcessTimeout",
             "XDEBUG_MODE=coverage vendor/bin/phpunit --testdox --coverage-text --coverage-html=.build/coverage"
         ],
-        "project:test:dependencies": [
+        "test:dependencies": [
             "vendor/bin/composer-dependency-analyser"
         ]
     }

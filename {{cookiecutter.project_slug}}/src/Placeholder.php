@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace {{ cookiecutter.psr4_namespace }};
 
-final class Placeholder
+final readonly class Placeholder
 {
     public function __construct(private string $prefix) {}
 

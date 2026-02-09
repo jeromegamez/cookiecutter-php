@@ -16,7 +16,7 @@ use PHPUnit\Framework\TestCase;
 final class PlaceholderTest extends TestCase
 {
     #[Test]
-    public function it_echoes_a_value(): void
+    public function testItEchoesAValue(): void
     {
         $placeholder = new Placeholder('Test: ');
         $result = $placeholder->echo('Hello');

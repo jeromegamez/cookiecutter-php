@@ -10,3 +10,4 @@
 /composer-dependency-analyser.php export-ignore
 /phpstan.neon.dist                export-ignore
 /phpunit.dist.xml                 export-ignore
+/rector.php export-ignore         export-ignore
