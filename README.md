@@ -5,7 +5,7 @@
 ## Features
 
 * Automated [Composer] Setup
-* Testing setup with [PHPStan] and [PHPUnit] (`composer test`)
+* Testing and linting setup with [PHPStan], [PHPUnit], [Rector], and [PHP CS Fixer] (`composer test:all`)
 * Ready-to-go GitHub Actions
 
 ## Quickstart
@@ -49,3 +49,5 @@ You can find more information at https://cookiecutter.readthedocs.io/en/latest/a
 [Cookiecutter Installation Docs]: https://cookiecutter.readthedocs.io/en/latest/installation.html
 [PHPStan]: https://phpstan.org/
 [PHPUnit]: https://phpunit.de/
+[Rector]: https://getrector.com/
+[PHP CS Fixer]: https://cs.symfony.com/

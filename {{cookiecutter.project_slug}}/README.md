@@ -16,8 +16,28 @@
 composer require {{ cookiecutter.composer_package_name }}
 ```
 
-## Running tests
+## Running checks
 
 ```shell
-composer test
+composer test:all
+```
+
+The full check suite includes:
+
+- PHPUnit tests
+- PHPStan static analysis
+- Composer Dependency Analyser checks
+- Rector dry-run
+- PHP CS Fixer check
+
+To run only linting tools (Rector + PHP CS Fixer):
+
+```shell
+composer lint
+```
+
+To apply automatic lint fixes:
+
+```shell
+composer lint:fix
 ```
