@@ -82,7 +82,7 @@
         ],
         "test:coverage": [
             "Composer\\Config::disableProcessTimeout",
-            "XDEBUG_MODE=coverage vendor/bin/phpunit --testdox --coverage-text --coverage-html=.build/coverage"
+            "XDEBUG_MODE=coverage vendor/bin/phpunit --testdox --coverage-text --coverage-html=build/coverage"
         ],
         "test:require-checker": [
             "XDEBUG_MODE=off vendor/bin/composer-require-checker check --config-file=composer-require-checker.json composer.json"

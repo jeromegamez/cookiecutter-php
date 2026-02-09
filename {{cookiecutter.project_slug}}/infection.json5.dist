@@ -7,10 +7,10 @@
     },
     "timeout": 25,
     "threads": "max",
-    "tmpDir": ".build/infection",
+    "tmpDir": "build/infection",
     "logs": {
-        "summary": ".build/infection-summary.log",
-        "summaryJson": ".build/infection-summary.json"
+        "summary": "build/infection-summary.log",
+        "summaryJson": "build/infection-summary.json"
     },
     "mutators": {
         "@default": true

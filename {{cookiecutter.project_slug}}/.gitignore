@@ -1,4 +1,4 @@
-/.build
+/build
 /vendor
 
 /.php-cs-fixer.cache
