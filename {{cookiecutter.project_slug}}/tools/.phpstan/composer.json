@@ -1,0 +1,19 @@
+{
+    "require-dev": {
+        "ergebnis/phpstan-rules": "^2.13.1",
+        "phpstan/extension-installer": "^1.4.3",
+        "phpstan/phpstan": "^2.1.38",
+        "phpstan/phpstan-deprecation-rules": "^2.0.3",
+        "phpstan/phpstan-phpunit": "^2.0.13",
+        "phpstan/phpstan-strict-rules": "^2.0.8",
+        "phpunit/phpunit": "^13.0",
+        "rector/type-perfect": "^2.1.2",
+        "shipmonk/dead-code-detector": "^0.14.1",
+        "tomasvotruba/type-coverage": "^2.1.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "phpstan/extension-installer": true
+        }
+    }
+}

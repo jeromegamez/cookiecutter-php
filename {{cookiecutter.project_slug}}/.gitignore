@@ -1,5 +1,6 @@
 /build
 /vendor
+/.ant_targets
 
 /.php-cs-fixer.cache
 /.phpunit.result.cache
@@ -9,3 +10,4 @@
 /infection.json5
 /phpstan.neon
 /phpunit.xml
+/tools/.rector/vendor
