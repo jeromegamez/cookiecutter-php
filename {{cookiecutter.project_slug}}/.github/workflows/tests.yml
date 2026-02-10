@@ -8,6 +8,8 @@ on:
       - 'src/**'
       - 'tests/**'
       - 'composer.json'
+      - 'build.xml'
+      - '.phive/phars.xml'
       - '.php-cs-fixer.dist.php'
       - 'composer-dependency-analyser.php'
       - 'composer-require-checker.json'
@@ -15,6 +17,7 @@ on:
       - 'phpstan.neon.dist'
       - 'phpunit.dist.xml'
       - 'rector.php'
+      - 'tools/**'
   push:
     branches: [ main ]
     paths:
@@ -23,6 +26,8 @@ on:
       - 'src/**'
       - 'tests/**'
       - 'composer.json'
+      - 'build.xml'
+      - '.phive/phars.xml'
       - '.php-cs-fixer.dist.php'
       - 'composer-dependency-analyser.php'
       - 'composer-require-checker.json'
@@ -30,6 +35,7 @@ on:
       - 'phpstan.neon.dist'
       - 'phpunit.dist.xml'
       - 'rector.php'
+      - 'tools/**'
   workflow_dispatch:
 
 concurrency:
@@ -88,13 +94,32 @@ jobs:
         with:
           dependency-versions: "${{ matrix.dependencies }}"
 
+      - name: Install PHAR tools with Phive
+        run: tools/phive --no-progress install --trust-gpg-keys CBB3D576F2A0946F
+
+      - name: Install PHPStan dependencies
+        run: tools/composer --working-dir=tools/.phpstan install --no-interaction --no-progress --no-ansi
+
       - name: Setup Problem Matchers
         run: |
           echo "::add-matcher::${{ runner.tool_cache }}/php.json"
           echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
 
       - name: Run PHPStan
-        run: vendor/bin/phpstan
+        run: tools/composer analyze
 
       - name: Run PHPUnit
-        run: vendor/bin/phpunit --testdox --coverage-text --error-format=github{% endraw %}
+        run: tools/composer test:coverage -- --error-format=github
+
+  bc-check:
+    name: Backward Compatibility Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Run Roave BC Check
+        uses: docker://nyholm/roave-bc-check-ga{% endraw %}

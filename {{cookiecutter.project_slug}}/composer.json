@@ -15,22 +15,7 @@
         "php": "~8.4.0 || ~8.5.0"
     },
     "require-dev": {
-        "ergebnis/composer-normalize": "^2.50.0",
-        "infection/infection": "^0.32.4",
-        "shipmonk/dead-code-detector": "^0.14.1",
-        "maglnet/composer-require-checker": "^4.20.0",
-        "php-cs-fixer/shim": "^3.93.1",
-        "phpstan/extension-installer": "^1.4.3",
-        "phpstan/phpstan": "^2.1.38",
-        "phpstan/phpstan-deprecation-rules": "^2.0.3",
-        "phpstan/phpstan-phpunit": "^2.0.13",
-        "phpstan/phpstan-strict-rules": "^2.0.8",
-        "phpunit/phpunit": "^13.0.1",
-        "rector/rector": "^2.3.6",
-        "rector/type-perfect": "^2.1.2",
-        "roave/backward-compatibility-check": "^8.18.0",
-        "shipmonk/composer-dependency-analyser": "^1.8.4",
-        "symfony/var-dumper": "^8.0.4"
+        "shipmonk/composer-dependency-analyser": "^1.8.4"
     },
     "autoload": {
         "psr-4": {
@@ -43,59 +28,36 @@
         }
     },
     "config": {
-        "allow-plugins": {
-            "ergebnis/composer-normalize": true,
-            "infection/extension-installer": true,
-            "phpstan/extension-installer": true
-        },
         "sort-packages": true
     },
-    "extra": {
-        "composer-normalize": {
-            "indent-size": 4,
-            "indent-style": "space"
-        }
-    },
     "scripts": {
-        "analyze": "vendor/bin/phpstan analyse",
+        "analyze": "tools/phpstan --ansi analyse",
         "lint": [
-            "vendor/bin/rector --dry-run",
-            "vendor/bin/php-cs-fixer check --diff --verbose",
+            "tools/.rector/vendor/bin/rector --ansi --dry-run",
+            "tools/php-cs-fixer check --ansi --diff --verbose",
             "@lint:composer"
         ],
+        "lint:composer": "tools/composer-normalize --ansi --dry-run",
+        "lint:composer:fix": "tools/composer-normalize --ansi",
         "lint:fix": [
-            "vendor/bin/rector",
-            "vendor/bin/php-cs-fixer fix --diff --verbose",
+            "tools/.rector/vendor/bin/rector --ansi",
+            "tools/php-cs-fixer fix --ansi --diff --verbose",
             "@lint:composer:fix"
         ],
-        "lint:composer": "@composer normalize --dry-run",
-        "lint:composer:fix": "@composer normalize",
         "test": "@test:all",
         "test:all": [
             "@analyze",
             "@lint",
-            "@test:unit",
-            "@test:dependencies"
+            "@test:unit"
         ],
-        "test:unit": [
-            "vendor/bin/phpunit --testdox"
-        ],
-        "test:coverage": [
-            "Composer\\Config::disableProcessTimeout",
-            "XDEBUG_MODE=coverage vendor/bin/phpunit --testdox --coverage-text --coverage-html=build/coverage"
-        ],
-        "test:require-checker": [
-            "XDEBUG_MODE=off vendor/bin/composer-require-checker check --config-file=composer-require-checker.json composer.json"
-        ],
+        "test:bc": "docker run --rm -v \"$PWD\":/app nyholm/roave-bc-check",
+        "test:coverage": "XDEBUG_MODE=coverage tools/phpunit --colors=always --testdox --coverage-text --coverage-html=build/coverage",
         "test:dependencies": [
-            "vendor/bin/composer-dependency-analyser",
+            "vendor/bin/composer-dependency-analyser --ansi",
             "@test:require-checker"
         ],
-        "test:bc": [
-            "vendor/bin/roave-backward-compatibility-check"
-        ],
-        "test:mutation": [
-            "vendor/bin/infection"
-        ]
+        "test:mutation": "PATH=tools:$PATH tools/infection --ansi",
+        "test:require-checker": "XDEBUG_MODE=off tools/composer-require-checker check --config-file=composer-require-checker.json composer.json",
+        "test:unit": "tools/phpunit --colors=always --testdox"
     }
 }

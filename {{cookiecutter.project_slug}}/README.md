@@ -19,8 +19,12 @@ composer require {{ cookiecutter.composer_package_name }}
 ## Running checks
 
 ```shell
-composer test:all
+ant -emacs setup
+tools/composer test:all
 ```
+
+`ant setup` installs PHAR tools with Phive, installs `tools/.phpstan` and `tools/.rector` dependencies, and creates `tools/phpunit.phar` and `tools/phpstan` symlinks.
+Run all lint/check/test scripts via Composer (either `tools/composer ...` or a globally installed `composer ...`).
 
 The full check suite includes:
 
@@ -36,37 +40,39 @@ The full check suite includes:
 To run only linting tools (Rector + PHP CS Fixer + Composer Normalize):
 
 ```shell
-composer lint
+tools/composer lint
 ```
 
 To apply automatic lint fixes:
 
 ```shell
-composer lint:fix
+tools/composer lint:fix
 ```
 
 To run only Composer manifest normalization checks:
 
 ```shell
-composer lint:composer
-composer lint:composer:fix
+tools/composer lint:composer
+tools/composer lint:composer:fix
 ```
 
 To run dependency boundary checks directly:
 
 ```shell
-composer test:dependencies
-composer test:require-checker
+tools/composer test:dependencies
+tools/composer test:require-checker
 ```
 
 To run the backward-compatibility check (recommended after fetching tags):
 
 ```shell
-composer test:bc
+tools/composer test:bc
 ```
+
+`test:bc` runs the check in Docker (`nyholm/roave-bc-check`), so Docker must be available.
 
 To run mutation testing:
 
 ```shell
-composer test:mutation
+tools/composer test:mutation
 ```
