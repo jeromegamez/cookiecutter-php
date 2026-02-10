@@ -25,6 +25,14 @@ Generate a new PHP project:
 $ cookiecutter gh:jeromegamez/cookiecutter-php
 ```
 
+Optional: bootstrap PHAR tools immediately after generation:
+
+```shell
+$ COOKIECUTTER_BOOTSTRAP_TOOLS=1 cookiecutter gh:jeromegamez/cookiecutter-php
+```
+
+You can also set `bootstrap_tools` when prompted. By default it is `false`.
+
 ## Manual template checks
 
 Use `ant` to generate test projects locally (non-interactive):
