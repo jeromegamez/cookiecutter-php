@@ -98,7 +98,7 @@
         ],
         "tools:update": [
             "tools/phive --no-progress self-update",
-            "tools/phive --no-progress update --trust-gpg-keys E82B2FB314E9906E,4AA394086372C20A,C00543248C87FB13,033E5F8D801A2F8D,C5095986493B4AA0",
+            "tools/phive --no-progress update",
             "@tools:phpstan:update",
             "@tools:rector:update",
             "@tools:link"
