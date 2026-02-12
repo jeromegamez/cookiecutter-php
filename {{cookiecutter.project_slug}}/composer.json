@@ -34,8 +34,7 @@
             "@clean:vendor"
         ],
         "clean:build-artifacts": [
-            "rm -rf build/coverage build/infection",
-            "@php -r \"@unlink('build/infection-summary.log'); @unlink('build/infection-summary.json');\""
+            "rm -rf build && mkdir -p build"
         ],
         "clean:vendor": "rm -rf vendor",
         "dependencies:check": [
@@ -84,7 +83,8 @@
         "tools:install": "tools/phive --no-progress install --trust-gpg-keys E82B2FB314E9906E,4AA394086372C20A,C00543248C87FB13,033E5F8D801A2F8D,C5095986493B4AA0",
         "tools:link": [
             "ln -snf phpunit tools/phpunit.phar",
-            "ln -snf .phpstan/vendor/bin/phpstan tools/phpstan"
+            "ln -snf .phpstan/vendor/bin/phpstan tools/phpstan",
+            "ln -snf .rector/vendor/bin/rector tools/rector"
         ],
         "tools:phpstan:install": "composer --working-dir=tools/.phpstan install --no-interaction --no-progress --ansi",
         "tools:phpstan:update": [

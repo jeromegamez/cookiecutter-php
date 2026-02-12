@@ -232,7 +232,7 @@ jobs:
         run: composer --working-dir=tools/.rector install --no-interaction --no-progress --ansi
       - name: Run linter suite
         run: |
-          tools/.rector/vendor/bin/rector --ansi --dry-run
+          tools/rector --ansi --dry-run
           tools/php-cs-fixer check --ansi --diff --verbose
           tools/composer-normalize --ansi --dry-run
 
