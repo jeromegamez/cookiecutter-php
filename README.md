@@ -5,8 +5,8 @@
 ## Features
 
 * Automated [Composer] Setup
-* Testing and linting setup with [PHPStan], [PHPUnit], [Rector], [PHP CS Fixer], [Composer Dependency Analyser], and [Composer Require Checker] (`composer test:all`)
-* Optional advanced quality gates with [Roave BC Check], [Infection], and [Composer Normalize]
+* Testing and linting setup with [PHPStan], [PHPUnit], [Rector], [PHP CS Fixer], and [Composer Normalize] (`composer test:all`)
+* Optional advanced quality gates with [Roave BC Check] and [Infection]
 * Ready-to-go GitHub Actions
 
 ## Quickstart
@@ -25,14 +25,6 @@ Generate a new PHP project:
 $ cookiecutter gh:jeromegamez/cookiecutter-php
 ```
 
-Optional: bootstrap PHAR tools immediately after generation:
-
-```shell
-$ COOKIECUTTER_BOOTSTRAP_TOOLS=1 cookiecutter gh:jeromegamez/cookiecutter-php
-```
-
-You can also set `bootstrap_tools` when prompted. By default it is `false`.
-
 ## Manual template checks
 
 Use `ant` to generate test projects locally (non-interactive):
@@ -44,8 +36,10 @@ $ ant -f build.xml generate-test-project-fixture
 
 Generated output:
 
-* `tests/generated/default/my-library` (uses defaults from `cookiecutter.json`)
-* `tests/generated/fixture/example-tools-library` (uses explicit fixture values)
+* `tests/generated/my-library` (from `generate-test-project`, using defaults from `cookiecutter.json`)
+* `tests/generated/example-tools-library` (from `generate-test-project-fixture`, using explicit fixture values)
+
+Each target cleans `tests/generated` before generating output.
 
 ## Demo
 
@@ -61,9 +55,12 @@ default_context:
     full_name: "My full name"
     email: "me@example.com"
     github_username: "mygithubusername"
+    github_repository_owner: "mygithubusername-or-org"
 abbreviations:
     php: https://github.com/jeromegamez/cookiecutter-php
 ```
+
+`github_repository_owner` defaults to `github_username` and can be used when the repository lives under an organization while sponsor/funding metadata should still use your personal username.
 
 You can find more information at https://cookiecutter.readthedocs.io/en/latest/advanced/user_config.html
 
@@ -74,8 +71,6 @@ You can find more information at https://cookiecutter.readthedocs.io/en/latest/a
 [PHPUnit]: https://phpunit.de/
 [Rector]: https://getrector.com/
 [PHP CS Fixer]: https://cs.symfony.com/
-[Composer Dependency Analyser]: https://github.com/shipmonk-rnd/composer-dependency-analyser
-[Composer Require Checker]: https://github.com/maglnet/ComposerRequireChecker
 [Roave BC Check]: https://github.com/Roave/BackwardCompatibilityCheck
 [Infection]: https://infection.github.io/
 [Composer Normalize]: https://github.com/ergebnis/composer-normalize

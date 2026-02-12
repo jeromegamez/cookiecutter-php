@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="cookiecutter-php" default="generate-test-project">
     <property name="output.dir" location="${basedir}/tests/generated"/>
-    <property name="bootstrap.tools" value="1"/>
     <property name="fixture.project.name" value="Example Tools Library"/>
     <property name="fixture.project.slug" value="example-tools-library"/>
 
@@ -13,7 +12,6 @@
         <mkdir dir="${output.dir}"/>
 
         <exec executable="cookiecutter" failonerror="true">
-            <env key="COOKIECUTTER_BOOTSTRAP_TOOLS" value="${bootstrap.tools}"/>
             <arg value="."/>
             <arg value="--no-input"/>
             <arg value="--overwrite-if-exists"/>
@@ -26,7 +24,6 @@
         <mkdir dir="${output.dir}"/>
 
         <exec executable="cookiecutter" failonerror="true">
-            <env key="COOKIECUTTER_BOOTSTRAP_TOOLS" value="${bootstrap.tools}"/>
             <arg value="."/>
             <arg value="--no-input"/>
             <arg value="--overwrite-if-exists"/>
@@ -34,7 +31,8 @@
             <arg value="${output.dir}"/>
             <arg value="full_name=Example Maintainer"/>
             <arg value="email=maintainer@example.com"/>
-            <arg value="github_username=example-org"/>
+            <arg value="github_username=example-maintainer"/>
+            <arg value="github_repository_owner=example-org"/>
             <arg value="project_name=${fixture.project.name}"/>
             <arg value="project_slug=${fixture.project.slug}"/>
             <arg value="project_type=library"/>
