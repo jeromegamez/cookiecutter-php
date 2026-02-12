@@ -188,11 +188,28 @@ jobs:
         run: tools/phpunit --colors=always --testdox
 
   lint:
-    name: Lint
+    name: Lint (${{ matrix.name }})
     needs:
       - dependency-validation
     runs-on: ubuntu-latest
     timeout-minutes: 10
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - id: rector
+            name: Rector
+            php: "8.5"
+            command: tools/rector --ansi --dry-run
+          - id: php-cs-fixer
+            name: PHP CS Fixer
+            php: "8.3"
+            command: tools/php-cs-fixer check --ansi --diff --verbose
+          - id: composer-normalize
+            name: Composer Normalize
+            php: "8.5"
+            command: tools/composer-normalize --ansi --dry-run
 
     steps:
       - name: Checkout code
@@ -201,18 +218,20 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: "8.5"
+          php-version: ${{ matrix.php }}
           extensions: none, curl, dom, iconv, json, mbstring, phar, tokenizer
           coverage: none
           tools: composer
 
       - name: Get Composer cache directory
+        if: ${{ matrix.id == 'rector' }}
         id: composer-cache
         shell: bash
         run: |
           echo "dir=$(composer config cache-files-dir)" >> "$GITHUB_OUTPUT"
 
       - name: Cache Composer cache directory
+        if: ${{ matrix.id == 'rector' }}
         uses: actions/cache@v5
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
@@ -220,21 +239,22 @@ jobs:
           restore-keys: ${{ runner.os }}-composer-
 
       - name: Install dependencies with Composer
+        if: ${{ matrix.id == 'rector' }}
         run: composer update --no-interaction --no-progress --ansi
 
       - name: Cache Rector dependencies
+        if: ${{ matrix.id == 'rector' }}
         uses: actions/cache@v5
         with:
           path: tools/.rector/vendor
           key: ${{ runner.os }}-rector-tools-${{ hashFiles('tools/.rector/composer.lock') }}
 
       - name: Install Rector dependencies
+        if: ${{ matrix.id == 'rector' }}
         run: composer --working-dir=tools/.rector install --no-interaction --no-progress --ansi
-      - name: Run linter suite
-        run: |
-          tools/rector --ansi --dry-run
-          tools/php-cs-fixer check --ansi --diff --verbose
-          tools/composer-normalize --ansi --dry-run
+
+      - name: Run ${{ matrix.name }}
+        run: ${{ matrix.command }}
 
   code-coverage:
     name: Code Coverage
