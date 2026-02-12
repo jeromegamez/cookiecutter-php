@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+    - name: 🙋 Ask a question
+      url: https://github.com/{{ cookiecutter.composer_package_name }}/discussions
+      about: Please use Discussions for questions and support requests.
+    - name: ❤️ Become a GitHub Sponsor
+      url: https://github.com/sponsors/{{ cookiecutter.github_username }}
+      about: Support the continued maintenance of this project and support its maintainer by becoming a GitHub Sponsor.

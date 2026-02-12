@@ -1,0 +1,87 @@
+name: "Bug report"
+description: "Something is not working as expected."
+labels:
+  - bug
+assignees:
+  - {{ cookiecutter.github_username }}
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report an issue.
+
+        The more details you can share, the easier it is to help.
+        If you can provide a minimal reproduction, that is especially helpful.
+  - type: textarea
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the bug is.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Expected behavior
+      description: What did you expect to happen?
+  - type: textarea
+    attributes:
+      label: Actual behavior
+      description: What happened instead?
+  - type: textarea
+    attributes:
+      label: Installed packages
+      description: |
+        You can generate a list with `composer show`.
+        This can help identify outdated dependencies or known conflicts.
+      render: text
+      value: |
+        # Paste output here
+  - type: textarea
+    attributes:
+      label: PHP version and extensions
+      description: |
+        You can generate a list with `composer show --platform`.
+        This helps identify missing, outdated, or conflicting PHP versions/extensions.
+      render: text
+      value: |
+        # Paste output here
+  - type: textarea
+    attributes:
+      label: Steps to reproduce the issue
+      description: |
+        Provide clear, concise, step-by-step instructions.
+      value: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Shell commands to reproduce (optional)
+      description: |
+        If terminal commands are needed to reproduce the issue, include them here.
+      render: shell
+      value: |
+        # Paste commands here
+  - type: textarea
+    attributes:
+      label: Minimal PHP code to reproduce (optional)
+      description: |
+        If possible, provide a minimal, self-contained PHP snippet that reproduces the issue.
+      render: php
+      value: |
+        <?php
+
+        // Paste minimal reproduction code here.
+  - type: textarea
+    attributes:
+      label: Error message/stack trace
+      description: |
+        If available, include the full stack trace.
+      render: text
+      value: |
+        # Paste output here
+  - type: textarea
+    attributes:
+      label: Additional information
+      description: If you have any additional context, add it here.

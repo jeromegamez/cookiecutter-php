@@ -1,0 +1,4 @@
+github: {{ cookiecutter.github_username }}
+# liberapay: {{ cookiecutter.github_username }}
+# thanks_dev: u/gh/{{ cookiecutter.github_username }}
+# custom: https://example.com

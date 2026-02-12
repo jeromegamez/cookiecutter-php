@@ -1,0 +1,43 @@
+name: "Feature request"
+description: "Propose a new feature."
+labels:
+  - feature-request
+assignees:
+  - {{ cookiecutter.github_username }}
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for sharing an idea.
+        The more context you can provide, the easier it is to evaluate and prioritize.
+  - type: textarea
+    attributes:
+      label: Describe the feature you would like to see
+      description: Explain the feature and why it would be useful.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Use case
+      description: Describe the problem this feature would solve for you.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Alternatives considered
+      description: Have you tried another approach or workaround?
+      render: text
+  - type: textarea
+    attributes:
+      label: Proposed API or behavior
+      description: If possible, sketch an API or expected behavior.
+      render: php
+      value: |
+        // Optional: proposed API usage
+  - type: textarea
+    attributes:
+      label: Additional context
+      description: Link related issues, docs, or prior art.
+      render: text
