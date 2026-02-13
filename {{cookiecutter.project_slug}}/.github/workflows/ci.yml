@@ -219,7 +219,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
-          extensions: none, curl, dom, iconv, json, mbstring, phar, tokenizer
+          extensions: none, ctype, curl, dom, iconv, json, libxml, mbstring, phar, tokenizer, xml, xmlwriter
           coverage: none
           tools: composer
 
