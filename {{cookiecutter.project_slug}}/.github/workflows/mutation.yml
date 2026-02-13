@@ -18,6 +18,10 @@ jobs:
 
     env:
       PHP_INI_VALUES: memory_limit=-1, zend.assertions=1, error_reporting=-1, log_errors_max_len=0, display_errors=On
+      INFECTION_MIN_MSI: ${{ vars.INFECTION_MIN_MSI || '0' }}
+      INFECTION_MIN_COVERED_MSI: ${{ vars.INFECTION_MIN_COVERED_MSI || '0' }}
+      INFECTION_DASHBOARD_API_KEY: ${{ secrets.INFECTION_DASHBOARD_API_KEY }}
+      STRYKER_DASHBOARD_API_KEY: ${{ secrets.STRYKER_DASHBOARD_API_KEY }}
 
     steps:
       - name: Checkout code
@@ -51,4 +55,7 @@ jobs:
         run: composer update --no-interaction --no-progress --ansi
 
       - name: Run Infection
-        run: PATH=tools:$PATH XDEBUG_MODE=coverage tools/infection --ansi{% endraw %}
+        run: |
+          PATH=tools:$PATH XDEBUG_MODE=coverage tools/infection --ansi \
+            --min-msi="${INFECTION_MIN_MSI}" \
+            --min-covered-msi="${INFECTION_MIN_COVERED_MSI}"{% endraw %}

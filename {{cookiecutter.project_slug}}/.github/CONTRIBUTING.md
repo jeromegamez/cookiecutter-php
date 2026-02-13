@@ -75,6 +75,23 @@ composer test:mutation
 ```
 
 Mutation testing in GitHub Actions is opt-in via `.github/workflows/mutation.yml` and runs only on `workflow_dispatch`.
+You can tighten quality gates and enable dashboard publishing by configuring:
+
+1. Repository variables:
+   `INFECTION_MIN_MSI` and `INFECTION_MIN_COVERED_MSI` (defaults are `0` if unset).
+2. Repository secret:
+   `INFECTION_DASHBOARD_API_KEY` (or `STRYKER_DASHBOARD_API_KEY`) for Stryker Dashboard uploads.
+3. `infection.json5.dist`:
+   Uncomment and configure the `logs.stryker` logger (`badge` or `report`, not both).
+
+Infection configuration in this template follows the recommended split:
+commit `infection.json5.dist`, and use local `infection.json5` overrides (already ignored in `.gitignore`) when needed.
+
+To inspect which files Infection will mutate (based on `source.directories` and `source.excludes`), run:
+
+```shell
+tools/infection config:list-sources
+```
 
 ## PhpStorm Setup
 

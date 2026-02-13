@@ -10,7 +10,13 @@
     "tmpDir": "build/infection",
     "logs": {
         "summary": "build/infection-summary.log",
-        "summaryJson": "build/infection-summary.json"
+        "summaryJson": "build/infection-summary.json",
+        // Optional: enable Stryker Dashboard upload for mutation badges/cloud reports.
+        // Requires INFECTION_DASHBOARD_API_KEY or STRYKER_DASHBOARD_API_KEY in CI.
+        // Use either "badge" or "report", not both.
+        // "stryker": {
+        //     "badge": "main"
+        // }
     },
     "mutators": {
         "@default": true
