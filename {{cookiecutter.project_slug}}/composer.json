@@ -79,9 +79,8 @@
         ],
         "test:bc": "docker run --rm -v \"$PWD\":/app nyholm/roave-bc-check",
         "test:coverage": "XDEBUG_MODE=coverage tools/phpunit --colors=always --testdox --coverage-text --coverage-html=build/coverage --coverage-clover=build/coverage/clover.xml",
-        "test:mutation": "PATH=tools:$PATH tools/infection --ansi",
         "test:unit": "tools/phpunit --colors=always --testdox",
-        "tools:install": "tools/phive --no-progress install --trust-gpg-keys E82B2FB314E9906E,4AA394086372C20A,C00543248C87FB13,033E5F8D801A2F8D,C5095986493B4AA0",
+        "tools:install": "tools/phive --no-progress install --trust-gpg-keys E82B2FB314E9906E,4AA394086372C20A,C00543248C87FB13,033E5F8D801A2F8D",
         "tools:link": [
             "ln -snf phpunit tools/phpunit.phar",
             "ln -snf .phpstan/vendor/bin/phpstan tools/phpstan",

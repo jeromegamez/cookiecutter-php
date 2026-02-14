@@ -8,7 +8,6 @@
 [![Monthly Downloads](https://img.shields.io/packagist/dm/{{ cookiecutter.composer_package_name }}.svg)](https://packagist.org/packages/{{ cookiecutter.composer_package_name }}/stats)
 [![Total Downloads](https://img.shields.io/packagist/dt/{{ cookiecutter.composer_package_name }}.svg)](https://packagist.org/packages/{{ cookiecutter.composer_package_name }}/stats)
 [![CI](https://github.com/{{ cookiecutter.composer_package_name }}/actions/workflows/ci.yml/badge.svg)](https://github.com/{{ cookiecutter.composer_package_name }}/actions/workflows/ci.yml)
-[![Mutation Score](https://badge.stryker-mutator.io/github.com/{{ cookiecutter.composer_package_name }}/main)](https://dashboard.stryker-mutator.io/reports/github.com/{{ cookiecutter.composer_package_name }}/main)
 -->
 
 ## Installation

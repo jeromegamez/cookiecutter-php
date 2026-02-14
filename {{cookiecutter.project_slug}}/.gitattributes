@@ -14,7 +14,6 @@
 /build.xml                               export-ignore
 /composer-dependency-analyser.php        export-ignore
 /composer-require-checker.json           export-ignore
-/infection.json5.dist                    export-ignore
 /phpstan.neon.dist                       export-ignore
 /phpunit.dist.xml                        export-ignore
 /rector.php                              export-ignore

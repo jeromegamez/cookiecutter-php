@@ -6,6 +6,5 @@
 /.phpunit.xml
 
 /composer.lock
-/infection.json5
 /phpstan.neon
 /phpunit.xml

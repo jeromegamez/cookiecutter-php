@@ -5,8 +5,7 @@
 ## Features
 
 * Automated [Composer] Setup
-* Testing and linting setup with [PHPStan], [PHPUnit], [Rector], [PHP CS Fixer], and [Composer Normalize] (`composer test:all`)
-* Optional advanced quality gates with [Roave BC Check] and [Infection]
+* Testing and linting setup with [PHPStan], [PHPUnit], [Rector], [PHP CS Fixer], [Roave BC Check], and [Composer Normalize] (`composer test:all`)
 * Ready-to-go GitHub Actions
 
 ## Quickstart
@@ -72,5 +71,4 @@ You can find more information at https://cookiecutter.readthedocs.io/en/latest/a
 [Rector]: https://getrector.com/
 [PHP CS Fixer]: https://cs.symfony.com/
 [Roave BC Check]: https://github.com/Roave/BackwardCompatibilityCheck
-[Infection]: https://infection.github.io/
 [Composer Normalize]: https://github.com/ergebnis/composer-normalize
