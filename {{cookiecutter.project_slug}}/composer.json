@@ -74,6 +74,7 @@
         "test:all": [
             "@analyze",
             "@lint",
+            "@test:bc",
             "@test:unit"
         ],
         "test:bc": "docker run --rm -v \"$PWD\":/app nyholm/roave-bc-check",
