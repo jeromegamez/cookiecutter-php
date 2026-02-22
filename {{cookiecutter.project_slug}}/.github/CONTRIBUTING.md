@@ -70,7 +70,7 @@ composer test:bc
 
 ## PhpStorm Setup
 
-In PhpStorm, configure quality tools with project-relative paths:
+In PhpStorm, configure Test Frameworks and quality tools with project-relative paths:
 
 1. `Settings` -> `PHP` -> `Quality Tools` -> `PHPStan`
    `PHPStan path`: `$PROJECT_DIR$/tools/phpstan`
@@ -78,6 +78,9 @@ In PhpStorm, configure quality tools with project-relative paths:
 2. `Settings` -> `PHP` -> `Quality Tools` -> `PHP CS Fixer`
    `PHP CS Fixer path`: `$PROJECT_DIR$/tools/php-cs-fixer`
    `Ruleset`: `$PROJECT_DIR$/.php-cs-fixer.dist.php`
+3. `Settings` -> `PHP` -> `Test Frameworks` -> `PHPUnit local`
+   `Path to phpunit.phar`: `$PROJECT_DIR$/tools/phpunit`
+   `Default configuration file`: `$PROJECT_DIR$/phpunit.dist.xml`
 
 ## CI Coverage and Codecov
 
