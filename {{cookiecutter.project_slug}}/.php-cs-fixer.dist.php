@@ -11,6 +11,7 @@ return (new PhpCsFixer\Config())
     ->setRiskyAllowed(true)
     ->setRules([
         '@PER-CS3x0' => true,
+        'declare_strict_types' => true,
         'multiline_whitespace_before_semicolons' => [
             'strategy' => 'new_line_for_chained_calls',
         ],
