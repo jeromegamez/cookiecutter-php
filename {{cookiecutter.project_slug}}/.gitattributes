@@ -16,4 +16,4 @@
 /composer-require-checker.json           export-ignore
 /phpstan.neon.dist                       export-ignore
 /phpunit.dist.xml                        export-ignore
-/rector.php                              export-ignore
+/rector.dist.php                         export-ignore
