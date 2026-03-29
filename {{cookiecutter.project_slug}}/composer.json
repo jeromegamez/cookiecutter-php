@@ -28,7 +28,7 @@
         "sort-packages": true
     },
     "scripts": {
-        "analyze": "tools/phpstan --ansi analyse",
+        "analyze": "XDEBUG_MODE=none tools/phpstan --ansi analyse",
         "clean": [
             "@clean:build-artifacts",
             "@clean:vendor"
@@ -41,23 +41,23 @@
             "@clean",
             "@tools:install",
             "@dependencies:install",
-            "composer outdated --locked --direct --strict --sort-by-age --ansi"
+            "XDEBUG_MODE=none composer outdated --locked --direct --strict --sort-by-age --ansi"
         ],
         "dependencies:install": "composer install --no-interaction --no-progress --ansi",
         "dependencies:update": [
-            "composer update --no-interaction --no-progress --ansi",
-            "composer bump --no-interaction --ansi"
+            "XDEBUG_MODE=none composer update --no-interaction --no-progress --ansi",
+            "XDEBUG_MODE=none composer bump --no-interaction --ansi"
         ],
         "lint": [
-            "tools/.rector/vendor/bin/rector --ansi --dry-run",
-            "tools/php-cs-fixer check --ansi --diff --verbose",
+            "XDEBUG_MODE=none tools/.rector/vendor/bin/rector --ansi --dry-run",
+            "XDEBUG_MODE=none tools/php-cs-fixer check --ansi --diff --verbose",
             "@lint:composer"
         ],
-        "lint:composer": "tools/composer-normalize --ansi --dry-run",
-        "lint:composer:fix": "tools/composer-normalize --ansi",
+        "lint:composer": "XDEBUG_MODE=none tools/composer-normalize --ansi --dry-run",
+        "lint:composer:fix": "XDEBUG_MODE=none tools/composer-normalize --ansi",
         "lint:fix": [
-            "tools/.rector/vendor/bin/rector --ansi",
-            "tools/php-cs-fixer fix --ansi --diff --verbose",
+            "XDEBUG_MODE=none tools/.rector/vendor/bin/rector --ansi",
+            "XDEBUG_MODE=none tools/php-cs-fixer fix --ansi --diff --verbose",
             "@lint:composer:fix"
         ],
         "setup": [
@@ -79,22 +79,22 @@
         ],
         "test:bc": "docker run --rm -v \"$PWD\":/app nyholm/roave-bc-check",
         "test:coverage": "XDEBUG_MODE=coverage tools/phpunit --colors=always --testdox --coverage-text --coverage-html=build/coverage --coverage-clover=build/coverage/clover.xml",
-        "test:unit": "tools/phpunit --colors=always --testdox",
+        "test:unit": "XDEBUG_MODE=develop tools/phpunit --colors=always --testdox",
         "tools:install": "tools/phive --no-progress install --trust-gpg-keys E82B2FB314E9906E,4AA394086372C20A,C00543248C87FB13,033E5F8D801A2F8D",
         "tools:link": [
             "ln -snf phpunit tools/phpunit.phar",
             "ln -snf .phpstan/vendor/bin/phpstan tools/phpstan",
             "ln -snf .rector/vendor/bin/rector tools/rector"
         ],
-        "tools:phpstan:install": "composer --working-dir=tools/.phpstan install --no-interaction --no-progress --ansi",
+        "tools:phpstan:install": "XDEBUG_MODE=none composer --working-dir=tools/.phpstan install --no-interaction --no-progress --ansi",
         "tools:phpstan:update": [
-            "composer --working-dir=tools/.phpstan update --no-interaction --no-progress --ansi",
-            "composer --working-dir=tools/.phpstan bump --no-interaction --ansi"
+            "XDEBUG_MODE=none composer --working-dir=tools/.phpstan update --no-interaction --no-progress --ansi",
+            "XDEBUG_MODE=none composer --working-dir=tools/.phpstan bump --no-interaction --ansi"
         ],
-        "tools:rector:install": "composer --working-dir=tools/.rector install --no-interaction --no-progress --ansi",
+        "tools:rector:install": "XDEBUG_MODE=none composer --working-dir=tools/.rector install --no-interaction --no-progress --ansi",
         "tools:rector:update": [
-            "composer --working-dir=tools/.rector update --no-interaction --no-progress --ansi",
-            "composer --working-dir=tools/.rector bump --no-interaction --ansi"
+            "XDEBUG_MODE=none composer --working-dir=tools/.rector update --no-interaction --no-progress --ansi",
+            "XDEBUG_MODE=none composer --working-dir=tools/.rector bump --no-interaction --ansi"
         ],
         "tools:update": [
             "tools/phive --no-progress self-update",
