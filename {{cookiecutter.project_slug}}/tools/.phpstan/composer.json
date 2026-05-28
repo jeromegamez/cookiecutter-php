@@ -1,6 +1,5 @@
 {
     "require-dev": {
-        "ergebnis/phpstan-rules": "^2.13.1",
         "phpstan/extension-installer": "^1.4.3",
         "phpstan/phpstan": "^2.1.38",
         "phpstan/phpstan-deprecation-rules": "^2.0.3",
