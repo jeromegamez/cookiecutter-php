@@ -33,6 +33,9 @@ on:
 permissions:
   contents: read
 
+env:
+  PHP_EXTENSIONS: none, bcmath, ctype, curl, dom, iconv, intl, json, libxml, mbstring, openssl, phar, pcntl, tokenizer, xml, xmlwriter
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
@@ -51,7 +54,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: "8.5"
-          extensions: none, bcmath, curl, dom, iconv, intl, json, mbstring, openssl, phar, tokenizer
+          extensions: ${{ env.PHP_EXTENSIONS }}
           coverage: none
           tools: composer
 
@@ -89,7 +92,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: "8.5"
-          extensions: none, ctype, curl, dom, iconv, json, libxml, mbstring, phar, tokenizer, xml, xmlwriter
+          extensions: ${{ env.PHP_EXTENSIONS }}
           coverage: none
           tools: composer
 
@@ -152,7 +155,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
-          extensions: none, ctype, curl, dom, iconv, json, libxml, mbstring, openssl, phar, tokenizer, xml, xmlwriter, pcntl
+          extensions: ${{ env.PHP_EXTENSIONS }}
           ini-values: ${{ env.PHP_INI_VALUES }}
           coverage: none
           tools: composer
@@ -200,6 +203,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: "8.5"
+          extensions: ${{ env.PHP_EXTENSIONS }}
           tools: composer
           coverage: none
 
@@ -255,7 +259,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
-          extensions: none, ctype, curl, dom, iconv, json, libxml, mbstring, phar, tokenizer, xml, xmlwriter
+          extensions: ${{ env.PHP_EXTENSIONS }}
           coverage: none
           tools: composer
 
@@ -310,7 +314,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: "8.5"
-          extensions: none, ctype, curl, dom, iconv, json, libxml, mbstring, openssl, phar, tokenizer, xml, xmlwriter, pcntl
+          extensions: ${{ env.PHP_EXTENSIONS }}
           ini-values: ${{ env.PHP_INI_VALUES }}
           coverage: xdebug
           tools: composer
