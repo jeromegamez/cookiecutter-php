@@ -401,7 +401,7 @@ jobs:
 
       - name: Run Roave BC Check
         if: ${{ steps.check-tags.outputs.has_tags == 'true' }}
-        uses: docker://nyholm/roave-bc-check-ga
+        uses: docker://nyholm/roave-bc-check-ga@sha256:a9d3d932a4d3ba6a5a0563ef3788918a538198ee9c061a153f9b55caa8d3625f
 
       - name: Skip Roave BC Check (no tags found)
         if: ${{ steps.check-tags.outputs.has_tags != 'true' }}
