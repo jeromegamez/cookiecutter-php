@@ -28,7 +28,7 @@
         "sort-packages": true
     },
     "scripts": {
-        "analyze": "XDEBUG_MODE=none tools/phpstan --ansi analyse",
+        "analyze": "XDEBUG_MODE=off tools/phpstan --ansi analyse",
         "clean": [
             "@clean:build-artifacts",
             "@clean:vendor"
@@ -41,23 +41,23 @@
             "@clean",
             "@tools:install",
             "@dependencies:install",
-            "XDEBUG_MODE=none composer outdated --locked --direct --strict --sort-by-age --ansi"
+            "XDEBUG_MODE=off composer outdated --locked --direct --strict --sort-by-age --ansi"
         ],
         "dependencies:install": "composer install --no-interaction --no-progress --ansi",
         "dependencies:update": [
-            "XDEBUG_MODE=none composer update --no-interaction --no-progress --ansi",
-            "XDEBUG_MODE=none composer bump --no-interaction --ansi"
+            "XDEBUG_MODE=off composer update --no-interaction --no-progress --ansi",
+            "XDEBUG_MODE=off composer bump --no-interaction --ansi"
         ],
         "lint": [
-            "XDEBUG_MODE=none tools/.rector/vendor/bin/rector --ansi --dry-run",
-            "XDEBUG_MODE=none tools/php-cs-fixer check --ansi --diff --verbose",
+            "XDEBUG_MODE=off tools/.rector/vendor/bin/rector --ansi --dry-run",
+            "XDEBUG_MODE=off tools/php-cs-fixer check --ansi --diff --verbose",
             "@lint:composer"
         ],
-        "lint:composer": "XDEBUG_MODE=none tools/composer-normalize --ansi --dry-run",
-        "lint:composer:fix": "XDEBUG_MODE=none tools/composer-normalize --ansi",
+        "lint:composer": "XDEBUG_MODE=off tools/composer-normalize --ansi --dry-run",
+        "lint:composer:fix": "XDEBUG_MODE=off tools/composer-normalize --ansi",
         "lint:fix": [
-            "XDEBUG_MODE=none tools/.rector/vendor/bin/rector --ansi",
-            "XDEBUG_MODE=none tools/php-cs-fixer fix --ansi --diff --verbose",
+            "XDEBUG_MODE=off tools/.rector/vendor/bin/rector --ansi",
+            "XDEBUG_MODE=off tools/php-cs-fixer fix --ansi --diff --verbose",
             "@lint:composer:fix"
         ],
         "setup": [
@@ -86,15 +86,15 @@
             "ln -snf .phpstan/vendor/bin/phpstan tools/phpstan",
             "ln -snf .rector/vendor/bin/rector tools/rector"
         ],
-        "tools:phpstan:install": "XDEBUG_MODE=none composer --working-dir=tools/.phpstan install --no-interaction --no-progress --ansi",
+        "tools:phpstan:install": "XDEBUG_MODE=off composer --working-dir=tools/.phpstan install --no-interaction --no-progress --ansi",
         "tools:phpstan:update": [
-            "XDEBUG_MODE=none composer --working-dir=tools/.phpstan update --no-interaction --no-progress --ansi",
-            "XDEBUG_MODE=none composer --working-dir=tools/.phpstan bump --no-interaction --ansi"
+            "XDEBUG_MODE=off composer --working-dir=tools/.phpstan update --no-interaction --no-progress --ansi",
+            "XDEBUG_MODE=off composer --working-dir=tools/.phpstan bump --no-interaction --ansi"
         ],
-        "tools:rector:install": "XDEBUG_MODE=none composer --working-dir=tools/.rector install --no-interaction --no-progress --ansi",
+        "tools:rector:install": "XDEBUG_MODE=off composer --working-dir=tools/.rector install --no-interaction --no-progress --ansi",
         "tools:rector:update": [
-            "XDEBUG_MODE=none composer --working-dir=tools/.rector update --no-interaction --no-progress --ansi",
-            "XDEBUG_MODE=none composer --working-dir=tools/.rector bump --no-interaction --ansi"
+            "XDEBUG_MODE=off composer --working-dir=tools/.rector update --no-interaction --no-progress --ansi",
+            "XDEBUG_MODE=off composer --working-dir=tools/.rector bump --no-interaction --ansi"
         ],
         "tools:update": [
             "tools/phive --no-progress self-update",
