@@ -1,0 +1,16 @@
+header = { "accept" = "text/html" }
+
+scheme = ["https"]
+
+exclude = [
+    'example\.(com|net|org)',
+]
+
+exclude_path = [
+    "./tools",
+    "./vendor",
+]
+
+exclude_all_private = false
+
+include_mail = false
