@@ -11,9 +11,6 @@
 /.gitignore                              export-ignore
 /.php-cs-fixer.dist.php                  export-ignore
 /.roave-backward-compatibility-check.xml export-ignore
-/build.xml                               export-ignore
-/composer-dependency-analyser.php        export-ignore
-/composer-require-checker.json           export-ignore
 /phpstan.neon.dist                       export-ignore
 /phpunit.dist.xml                        export-ignore
 /rector.dist.php                         export-ignore
