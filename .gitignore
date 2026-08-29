@@ -1,0 +1,9 @@
+# Tool phars and symlinks materialized by `composer tools:install` / `tools:update`
+# in the template directory. Generated projects track these files, so the ignores
+# live here and not in the template's tools/.gitignore.
+/{{cookiecutter.project_slug}}/tools/composer-normalize
+/{{cookiecutter.project_slug}}/tools/php-cs-fixer
+/{{cookiecutter.project_slug}}/tools/phpstan
+/{{cookiecutter.project_slug}}/tools/phpunit
+/{{cookiecutter.project_slug}}/tools/phpunit.phar
+/{{cookiecutter.project_slug}}/tools/rector

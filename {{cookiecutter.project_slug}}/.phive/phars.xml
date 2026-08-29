@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phive xmlns="https://phar.io/phive">
-  <phar name="php-cs-fixer" version="^3.93" installed="3.93.1" location="./tools/php-cs-fixer" copy="true"/>
-  <phar name="phpunit" version="^13.0" installed="13.0.1" location="./tools/phpunit" copy="true"/>
-  <phar name="composer-normalize" version="^2.50.0" installed="2.50.0" location="./tools/composer-normalize" copy="true"/>
+  <phar name="php-cs-fixer" version="^3.95.5" installed="3.95.23" location="./tools/php-cs-fixer" copy="true"/>
+  <phar name="phpunit" version="^13.0" installed="13.3.2" location="./tools/phpunit" copy="true"/>
+  <phar name="composer-normalize" version="^2.52.0" installed="2.52.0" location="./tools/composer-normalize" copy="true"/>
 </phive>
