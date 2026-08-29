@@ -4,82 +4,9 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "919f7e719f09fc42d16f986238e58c81",
+    "content-hash": "c825006c7e8d04e77f03f1df791befd0",
     "packages": [],
     "packages-dev": [
-        {
-            "name": "ergebnis/phpstan-rules",
-            "version": "2.13.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ergebnis/phpstan-rules.git",
-                "reference": "f69db86b98595c34fc1f61c89fe3b380141aa519"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/phpstan-rules/zipball/f69db86b98595c34fc1f61c89fe3b380141aa519",
-                "reference": "f69db86b98595c34fc1f61c89fe3b380141aa519",
-                "shasum": ""
-            },
-            "require": {
-                "ext-mbstring": "*",
-                "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0",
-                "phpstan/phpstan": "^2.1.35"
-            },
-            "require-dev": {
-                "codeception/codeception": "^4.0.0 || ^5.0.0",
-                "doctrine/orm": "^2.20.0 || ^3.3.0",
-                "ergebnis/composer-normalize": "^2.49.0",
-                "ergebnis/license": "^2.7.0",
-                "ergebnis/php-cs-fixer-config": "^6.59.0",
-                "ergebnis/phpunit-slow-test-detector": "^2.20.0",
-                "fakerphp/faker": "^1.24.1",
-                "phpstan/extension-installer": "^1.4.3",
-                "phpstan/phpstan-deprecation-rules": "^2.0.3",
-                "phpstan/phpstan-phpunit": "^2.0.12",
-                "phpstan/phpstan-strict-rules": "^2.0.8",
-                "phpunit/phpunit": "^9.6.21",
-                "psr/container": "^2.0.2",
-                "symfony/finder": "^5.4.45",
-                "symfony/process": "^5.4.47"
-            },
-            "type": "phpstan-extension",
-            "extra": {
-                "phpstan": {
-                    "includes": [
-                        "rules.neon"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Ergebnis\\PHPStan\\Rules\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Andreas Möller",
-                    "email": "am@localheinz.com",
-                    "homepage": "https://localheinz.com"
-                }
-            ],
-            "description": "Provides rules for phpstan/phpstan.",
-            "homepage": "https://github.com/ergebnis/phpstan-rules",
-            "keywords": [
-                "PHPStan",
-                "phpstan-rules"
-            ],
-            "support": {
-                "issues": "https://github.com/ergebnis/phpstan-rules/issues",
-                "security": "https://github.com/ergebnis/phpstan-rules/blob/main/.github/SECURITY.md",
-                "source": "https://github.com/ergebnis/phpstan-rules"
-            },
-            "time": "2026-01-27T17:13:06+00:00"
-        },
         {
             "name": "myclabs/deep-copy",
             "version": "1.13.4",
@@ -2175,16 +2102,16 @@
         },
         {
             "name": "shipmonk/dead-code-detector",
-            "version": "0.14.1",
+            "version": "0.15.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/shipmonk-rnd/dead-code-detector.git",
-                "reference": "4fdc912b25b1e169041f534a517126a1090bb2f4"
+                "reference": "e0e8d9ec48a60e4db5d54750e45196683e5f0a3c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/shipmonk-rnd/dead-code-detector/zipball/4fdc912b25b1e169041f534a517126a1090bb2f4",
-                "reference": "4fdc912b25b1e169041f534a517126a1090bb2f4",
+                "url": "https://api.github.com/repos/shipmonk-rnd/dead-code-detector/zipball/e0e8d9ec48a60e4db5d54750e45196683e5f0a3c",
+                "reference": "e0e8d9ec48a60e4db5d54750e45196683e5f0a3c",
                 "shasum": ""
             },
             "require": {
@@ -2192,6 +2119,7 @@
                 "phpstan/phpstan": "^2.1.23"
             },
             "require-dev": {
+                "behat/behat": "^3.14",
                 "composer-runtime-api": "^2.0",
                 "composer/semver": "^3.4",
                 "doctrine/orm": "^2.19 || ^3.0",
@@ -2199,6 +2127,7 @@
                 "ergebnis/composer-normalize": "^2.48.1",
                 "nette/application": "^3.1",
                 "nette/component-model": "^3.0",
+                "nette/tester": "^2.4",
                 "nette/utils": "^3.0 || ^4.0",
                 "nikic/php-parser": "^5.4.0",
                 "phpbench/phpbench": "^1.2",
@@ -2211,12 +2140,13 @@
                 "shipmonk/composer-dependency-analyser": "^1.8.2",
                 "shipmonk/coverage-guard": "^1.0.0",
                 "shipmonk/name-collision-detector": "^2.1.1",
-                "shipmonk/phpstan-dev": "^0.1.1",
+                "shipmonk/phpstan-dev": "^0.1.6",
                 "shipmonk/phpstan-rules": "^4.1.0",
                 "symfony/contracts": "^2.5 || ^3.0 || ^4.0",
                 "symfony/dependency-injection": "^5.4 || ^6.0 || ^7.0 || ^8.0",
                 "symfony/doctrine-bridge": "^5.4 || ^6.0 || ^7.0 || ^8.0",
                 "symfony/event-dispatcher": "^5.4 || ^6.0 || ^7.0 || ^8.0",
+                "symfony/framework-bundle": "^5.4 || ^6.0 || ^7.0 || ^8.0",
                 "symfony/http-kernel": "^5.4 || ^6.0 || ^7.0 || ^8.0",
                 "symfony/routing": "^5.4 || ^6.0 || ^7.0 || ^8.0",
                 "symfony/validator": "^5.4 || ^6.0 || ^7.0 || ^8.0",
@@ -2248,9 +2178,9 @@
             ],
             "support": {
                 "issues": "https://github.com/shipmonk-rnd/dead-code-detector/issues",
-                "source": "https://github.com/shipmonk-rnd/dead-code-detector/tree/0.14.1"
+                "source": "https://github.com/shipmonk-rnd/dead-code-detector/tree/0.15.1"
             },
-            "time": "2025-12-18T11:03:53+00:00"
+            "time": "2026-03-06T08:53:16+00:00"
         },
         {
             "name": "staabm/side-effects-detector",
