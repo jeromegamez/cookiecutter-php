@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a7b0f5ee8627a3406b0f8261a6e7b18f",
+    "content-hash": "47135f42f8ca2b576dd5f711c6eeb0ff",
     "packages": [],
     "packages-dev": [
         {
@@ -989,71 +989,6 @@
                 }
             ],
             "time": "2026-08-27T08:40:49+00:00"
-        },
-        {
-            "name": "rector/type-perfect",
-            "version": "2.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/rectorphp/type-perfect.git",
-                "reference": "33d189f48bbd4c2a0e95bddf78788b417259c364"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/type-perfect/zipball/33d189f48bbd4c2a0e95bddf78788b417259c364",
-                "reference": "33d189f48bbd4c2a0e95bddf78788b417259c364",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^8.2",
-                "phpstan/phpstan": "^2.1.30",
-                "webmozart/assert": "^1.11 || ^2.1"
-            },
-            "require-dev": {
-                "nikic/php-parser": "^5.6",
-                "phpstan/extension-installer": "^1.4",
-                "phpunit/phpunit": "^11.5|^12.2",
-                "rector/rector": "^2.2",
-                "symfony/dom-crawler": "^7.4",
-                "symplify/easy-coding-standard": "^12.6",
-                "symplify/phpstan-extensions": "^12.0",
-                "tomasvotruba/class-leak": "^2.0",
-                "tracy/tracy": "^2.10"
-            },
-            "type": "phpstan-extension",
-            "extra": {
-                "phpstan": {
-                    "includes": [
-                        "config/extension.neon"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Rector\\TypePerfect\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Next level type declaration checks - DEPRECATED, merged into tomasvotruba/type-coverage",
-            "support": {
-                "issues": "https://github.com/rectorphp/type-perfect/issues",
-                "source": "https://github.com/rectorphp/type-perfect/tree/2.2.0"
-            },
-            "funding": [
-                {
-                    "url": "https://www.paypal.me/rectorphp",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/tomasvotruba",
-                    "type": "github"
-                }
-            ],
-            "abandoned": "tomasvotruba/type-coverage",
-            "time": "2026-07-30T14:54:45+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -2163,50 +2098,60 @@
         },
         {
             "name": "shipmonk/dead-code-detector",
-            "version": "0.14.1",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/shipmonk-rnd/dead-code-detector.git",
-                "reference": "4fdc912b25b1e169041f534a517126a1090bb2f4"
+                "reference": "05054d486526ef35c7f7c5148545a5f922cfea42"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/shipmonk-rnd/dead-code-detector/zipball/4fdc912b25b1e169041f534a517126a1090bb2f4",
-                "reference": "4fdc912b25b1e169041f534a517126a1090bb2f4",
+                "url": "https://api.github.com/repos/shipmonk-rnd/dead-code-detector/zipball/05054d486526ef35c7f7c5148545a5f922cfea42",
+                "reference": "05054d486526ef35c7f7c5148545a5f922cfea42",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.4 || ^8.0",
-                "phpstan/phpstan": "^2.1.23"
+                "php": "^8.1",
+                "phpstan/phpstan": "^2.1.41"
             },
             "require-dev": {
+                "behat/behat": "^3.14",
                 "composer-runtime-api": "^2.0",
                 "composer/semver": "^3.4",
                 "doctrine/orm": "^2.19 || ^3.0",
-                "editorconfig-checker/editorconfig-checker": "^10.6.0",
+                "editorconfig-checker/editorconfig-checker": "^10.7.0",
                 "ergebnis/composer-normalize": "^2.48.1",
+                "laravel/framework": "^10.0 || ^11.0 || ^12.0",
                 "nette/application": "^3.1",
                 "nette/component-model": "^3.0",
+                "nette/neon": "^3.4",
+                "nette/tester": "^2.4",
                 "nette/utils": "^3.0 || ^4.0",
                 "nikic/php-parser": "^5.4.0",
+                "phpat/phpat": "^0.12",
                 "phpbench/phpbench": "^1.2",
-                "phpstan/phpstan-phpunit": "^2.0.4",
-                "phpstan/phpstan-strict-rules": "^2.0.3",
-                "phpstan/phpstan-symfony": "^2.0.2",
-                "phpunit/phpcov": "^8.2",
-                "phpunit/phpunit": "^9.6.22",
-                "shipmonk/coding-standard": "^0.2.0",
-                "shipmonk/composer-dependency-analyser": "^1.8.2",
-                "shipmonk/coverage-guard": "^1.0.0",
+                "phpstan/phpstan-phpunit": "^2.0.16",
+                "phpstan/phpstan-strict-rules": "^2.0.10",
+                "phpstan/phpstan-symfony": "^2.0.15",
+                "phpunit/phpcov": "^9.0.2",
+                "phpunit/phpunit": "^10.5.46",
+                "shipmonk/coding-standard": "^0.3.0",
+                "shipmonk/composer-dependency-analyser": "^1.8.4",
+                "shipmonk/coverage-guard": "^1.1.0",
                 "shipmonk/name-collision-detector": "^2.1.1",
-                "shipmonk/phpstan-dev": "^0.1.1",
-                "shipmonk/phpstan-rules": "^4.1.0",
+                "shipmonk/phpstan-dev": "^0.1.6",
+                "shipmonk/phpstan-rules": "^4.3.6",
                 "symfony/contracts": "^2.5 || ^3.0 || ^4.0",
                 "symfony/dependency-injection": "^5.4 || ^6.0 || ^7.0 || ^8.0",
                 "symfony/doctrine-bridge": "^5.4 || ^6.0 || ^7.0 || ^8.0",
                 "symfony/event-dispatcher": "^5.4 || ^6.0 || ^7.0 || ^8.0",
+                "symfony/form": "^5.4 || ^6.0 || ^7.0 || ^8.0",
+                "symfony/framework-bundle": "^5.4 || ^6.0 || ^7.0 || ^8.0",
                 "symfony/http-kernel": "^5.4 || ^6.0 || ^7.0 || ^8.0",
                 "symfony/routing": "^5.4 || ^6.0 || ^7.0 || ^8.0",
+                "symfony/scheduler": "^6.3 || ^7.0 || ^8.0",
+                "symfony/ux-live-component": "^2.34",
+                "symfony/ux-twig-component": "^2.34",
                 "symfony/validator": "^5.4 || ^6.0 || ^7.0 || ^8.0",
                 "twig/twig": "^3.0"
             },
@@ -2236,9 +2181,9 @@
             ],
             "support": {
                 "issues": "https://github.com/shipmonk-rnd/dead-code-detector/issues",
-                "source": "https://github.com/shipmonk-rnd/dead-code-detector/tree/0.14.1"
+                "source": "https://github.com/shipmonk-rnd/dead-code-detector/tree/1.4.0"
             },
-            "time": "2025-12-18T11:03:53+00:00"
+            "time": "2026-08-28T10:48:53+00:00"
         },
         {
             "name": "staabm/side-effects-detector",
