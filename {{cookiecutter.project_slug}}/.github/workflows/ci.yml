@@ -48,7 +48,9 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
       - name: Setup PHP
         uses: shivammathur/setup-php@f3e473d116dcccaddc5834248c87452386958240 # 2.37.2
@@ -65,10 +67,10 @@ jobs:
           echo "dir=$(composer config cache-files-dir)" >> "$GITHUB_OUTPUT"
 
       - name: Cache Composer cache directory
-        uses: actions/cache@caa296126883cff596d87d8935842f9db880ef25 # v5.1.0
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('composer.json', 'composer.lock') }}
           restore-keys: ${{ runner.os }}-composer-
 
       - name: Validate composer.json
@@ -86,7 +88,9 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
       - name: Setup PHP
         uses: shivammathur/setup-php@f3e473d116dcccaddc5834248c87452386958240 # 2.37.2
@@ -103,17 +107,17 @@ jobs:
           echo "dir=$(composer config cache-files-dir)" >> "$GITHUB_OUTPUT"
 
       - name: Cache Composer cache directory
-        uses: actions/cache@caa296126883cff596d87d8935842f9db880ef25 # v5.1.0
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('composer.json', 'composer.lock') }}
           restore-keys: ${{ runner.os }}-composer-
 
       - name: Install dependencies with Composer
         run: composer update --no-interaction --no-progress --ansi
 
       - name: Cache PHPStan dependencies
-        uses: actions/cache@caa296126883cff596d87d8935842f9db880ef25 # v5.1.0
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: tools/.phpstan/vendor
           key: ${{ runner.os }}-phpstan-tools-${{ hashFiles('tools/.phpstan/composer.lock') }}
@@ -125,7 +129,7 @@ jobs:
           echo "::add-matcher::${{ runner.tool_cache }}/php.json"
 
       - name: Static Analysis
-        run: tools/phpstan --ansi analyse
+        run: XDEBUG_MODE=off tools/phpstan --ansi analyse --no-progress --error-format=github
 
   unit-tests:
     name: Unit Tests (PHP ${{ matrix.php }}, ${{ matrix.dependencies }})
@@ -149,7 +153,9 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
       - name: Setup PHP
         uses: shivammathur/setup-php@f3e473d116dcccaddc5834248c87452386958240 # 2.37.2
@@ -167,10 +173,10 @@ jobs:
           echo "dir=$(composer config cache-files-dir)" >> "$GITHUB_OUTPUT"
 
       - name: Cache Composer cache directory
-        uses: actions/cache@caa296126883cff596d87d8935842f9db880ef25 # v5.1.0
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('composer.json', 'composer.lock') }}
           restore-keys: ${{ runner.os }}-composer-
 
       - name: Install dependencies with Composer
@@ -197,7 +203,9 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
       - name: Setup PHP
         uses: shivammathur/setup-php@f3e473d116dcccaddc5834248c87452386958240 # 2.37.2
@@ -214,7 +222,7 @@ jobs:
           echo "dir=$(composer config cache-files-dir)" >> "$GITHUB_OUTPUT"
 
       - name: Cache Composer cache directory
-        uses: actions/cache@caa296126883cff596d87d8935842f9db880ef25 # v5.1.0
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
           key: ${{ runner.os }}-composer-${{ hashFiles('composer.json', 'composer.lock') }}
@@ -224,7 +232,12 @@ jobs:
         run: composer install --no-interaction --no-progress --ansi --ignore-platform-req=ext-grpc
 
       - name: Run Composer Audit
-        run: composer audit --no-interaction --format=summary --abandoned=report --ansi
+        run: |
+          if [ -n "$(composer show 2>/dev/null)" ]; then
+            composer audit --no-interaction --format=summary --abandoned=report --ansi
+          else
+            echo "No dependencies to audit, skipping."
+          fi
 
 
   lint:
@@ -244,7 +257,7 @@ jobs:
             command: tools/rector --ansi --dry-run
           - id: php-cs-fixer
             name: PHP CS Fixer
-            php: "8.4"
+            php: "8.5"
             command: tools/php-cs-fixer check --ansi --diff --verbose
           - id: composer-normalize
             name: Composer Normalize
@@ -253,7 +266,9 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
       - name: Setup PHP
         uses: shivammathur/setup-php@f3e473d116dcccaddc5834248c87452386958240 # 2.37.2
@@ -272,10 +287,10 @@ jobs:
 
       - name: Cache Composer cache directory
         if: ${{ matrix.id == 'rector' }}
-        uses: actions/cache@caa296126883cff596d87d8935842f9db880ef25 # v5.1.0
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('composer.json', 'composer.lock') }}
           restore-keys: ${{ runner.os }}-composer-
 
       - name: Install dependencies with Composer
@@ -284,7 +299,7 @@ jobs:
 
       - name: Cache Rector dependencies
         if: ${{ matrix.id == 'rector' }}
-        uses: actions/cache@caa296126883cff596d87d8935842f9db880ef25 # v5.1.0
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: tools/.rector/vendor
           key: ${{ runner.os }}-rector-tools-${{ hashFiles('tools/.rector/composer.lock') }}
@@ -302,13 +317,18 @@ jobs:
       - unit-tests
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    permissions:
+      contents: read
+      id-token: write # authenticate uploads to Codecov with OIDC
 
     env:
       PHP_INI_VALUES: memory_limit=-1, zend.assertions=1, error_reporting=-1, log_errors_max_len=0, display_errors=On
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
       - name: Setup PHP
         uses: shivammathur/setup-php@f3e473d116dcccaddc5834248c87452386958240 # 2.37.2
@@ -326,16 +346,16 @@ jobs:
           echo "dir=$(composer config cache-files-dir)" >> "$GITHUB_OUTPUT"
 
       - name: Cache Composer cache directory
-        uses: actions/cache@caa296126883cff596d87d8935842f9db880ef25 # v5.1.0
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('composer.json', 'composer.lock') }}
           restore-keys: ${{ runner.os }}-composer-
 
       - name: Install dependencies with Composer
         run: composer update --no-interaction --no-progress --ansi
       - name: Cache PHPUnit static analysis cache
-        uses: actions/cache@caa296126883cff596d87d8935842f9db880ef25 # v5.1.0
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: .phpunit.cache/code-coverage
           key: ${{ runner.os }}-phpunit-code-coverage-${{ github.ref }}-
@@ -346,25 +366,28 @@ jobs:
         run: tools/phpunit --warm-coverage-cache
 
       - name: Collect code coverage with PHPUnit
-        run: tools/phpunit --log-junit build/test-results.xml --coverage-clover build/code-coverage.xml
+        run: mkdir -p build && tools/phpunit --log-junit build/test-results.xml --coverage-clover build/code-coverage.xml
 
-      # - name: Upload test results to Codecov.io
+      # - name: Upload test results to Codecov
       #   if: ${{ !cancelled() }}
-      #   uses: codecov/codecov-action@v5
+      #   uses: codecov/codecov-action@fb8b3582c8e4def4969c97caa2f19720cb33a72f # v7.0.0
       #   with:
-      #     token: ${{ secrets.CODECOV_TOKEN }}
+      #     use_oidc: true
+      #     flags: unit
       #     report_type: test_results
       #     disable_search: true
       #     files: ./build/test-results.xml
+      #     fail_ci_if_error: false
 
-      # - name: Upload code coverage data to Codecov.io
+      # - name: Upload code coverage data to Codecov
       #   if: ${{ !cancelled() }}
-      #   uses: codecov/codecov-action@v5
+      #   uses: codecov/codecov-action@fb8b3582c8e4def4969c97caa2f19720cb33a72f # v7.0.0
       #   with:
-      #     token: ${{ secrets.CODECOV_TOKEN }}
-      #     report_type: coverage
+      #     use_oidc: true
       #     disable_search: true
       #     files: ./build/code-coverage.xml
+      #     flags: unit
+      #     fail_ci_if_error: false
 
   bc-check:
     name: Backward Compatibility Check
@@ -375,10 +398,11 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
           fetch-tags: true
+          persist-credentials: false
 
       # Workaround for https://github.com/Nyholm/roave-bc-check-docker/issues/32
       # and https://github.com/actions/runner/issues/2033.
@@ -401,7 +425,7 @@ jobs:
 
       - name: Run Roave BC Check
         if: ${{ steps.check-tags.outputs.has_tags == 'true' }}
-        uses: docker://nyholm/roave-bc-check-ga
+        uses: docker://nyholm/roave-bc-check-ga@sha256:a9d3d932a4d3ba6a5a0563ef3788918a538198ee9c061a153f9b55caa8d3625f
 
       - name: Skip Roave BC Check (no tags found)
         if: ${{ steps.check-tags.outputs.has_tags != 'true' }}
