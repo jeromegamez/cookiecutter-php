@@ -27,9 +27,10 @@ composer setup
 ```
 
 4. Implement your change and add or update tests.
-5. Run the full local checks:
+5. Install the BC checker and run the full local checks with PHP 8.5:
 
 ```shell
+composer tools:bc:install
 composer test:all
 ```
 
@@ -62,11 +63,17 @@ Run only unit tests:
 composer test:unit
 ```
 
-Run backward compatibility checks (Docker required):
+Install and run backward compatibility checks with PHP 8.5
+(repositories without tags are skipped):
 
 ```shell
+composer tools:bc:install
 composer test:bc
 ```
+
+The BC checker is installed separately from `composer setup` because its locked
+dependencies do not support PHP 8.6. Update it with `composer tools:bc:update`
+under PHP 8.5. CI installs the same lockfile.
 
 ## PhpStorm Setup
 
