@@ -43,7 +43,7 @@ concurrency:
 jobs:
   dependency-validation:
     name: Dependency Validation
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     timeout-minutes: 10
 
     steps:
@@ -83,7 +83,7 @@ jobs:
     name: Static Analysis
     needs:
       - dependency-validation
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     timeout-minutes: 10
 
     steps:
@@ -135,7 +135,7 @@ jobs:
     name: Unit Tests (PHP ${{ matrix.php }}, ${{ matrix.dependencies }})
     needs:
       - dependency-validation
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     timeout-minutes: 10
 
     env:
@@ -199,7 +199,7 @@ jobs:
     name: Composer Audit
     needs:
       - dependency-validation
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     timeout-minutes: 10
 
     steps:
@@ -245,7 +245,7 @@ jobs:
     name: Lint (${{ matrix.name }})
     needs:
       - dependency-validation
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     timeout-minutes: 10
 
     strategy:
@@ -316,7 +316,7 @@ jobs:
     name: Code Coverage
     needs:
       - unit-tests
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     timeout-minutes: 10
     permissions:
       contents: read
@@ -394,7 +394,7 @@ jobs:
     name: Backward Compatibility Check
     needs:
       - unit-tests
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     timeout-minutes: 10
 
     steps:

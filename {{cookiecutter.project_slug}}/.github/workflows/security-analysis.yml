@@ -27,7 +27,7 @@ concurrency:
 jobs:
   actionlint:
     name: Run actionlint
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     permissions:
       contents: read
     steps:
@@ -41,7 +41,7 @@ jobs:
 
   zizmor:
     name: Run zizmor
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     permissions:
       actions: read # read workflow artifacts/results for analysis
       contents: read # read repo content for workflow scan
