@@ -235,7 +235,7 @@ jobs:
       - name: Run Composer Audit
         run: |
           if [ -n "$(composer show 2>/dev/null)" ]; then
-            composer audit --no-interaction --format=summary --abandoned=report --ansi
+            composer audit --no-interaction --format=table --abandoned=report --ansi
           else
             echo "No dependencies to audit, skipping."
           fi
@@ -255,7 +255,7 @@ jobs:
           - id: rector
             name: Rector
             php: "8.5"
-            command: tools/rector --ansi --dry-run
+            command: tools/rector --dry-run --ansi --no-progress-bar
           - id: php-cs-fixer
             name: PHP CS Fixer
             php: "8.5"
@@ -263,7 +263,7 @@ jobs:
           - id: composer-normalize
             name: Composer Normalize
             php: "8.5"
-            command: tools/composer-normalize --ansi --dry-run
+            command: tools/composer-normalize --ansi --dry-run --diff
 
     steps:
       - name: Checkout code
@@ -362,6 +362,11 @@ jobs:
           key: ${{ runner.os }}-phpunit-code-coverage-${{ github.ref }}-
           restore-keys: |
             ${{ runner.os }}-phpunit-code-coverage-${{ github.ref }}-
+
+      - name: Setup Problem Matchers
+        run: |
+          echo "::add-matcher::${{ runner.tool_cache }}/php.json"
+          echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
 
       - name: Warm PHPUnit static analysis cache
         run: tools/phpunit --warm-coverage-cache
