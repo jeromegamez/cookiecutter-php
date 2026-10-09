@@ -81,7 +81,7 @@ In PhpStorm, configure Test Frameworks and quality tools with project-relative p
 
 1. `Settings` -> `PHP` -> `Quality Tools` -> `PHPStan`
    `PHPStan path`: `$PROJECT_DIR$/tools/phpstan`
-   `Configuration file`: `$PROJECT_DIR$/phpstan.neon.dist`
+   `Configuration file`: `$PROJECT_DIR$/phpstan.dist.neon`
 2. `Settings` -> `PHP` -> `Quality Tools` -> `PHP CS Fixer`
    `PHP CS Fixer path`: `$PROJECT_DIR$/tools/php-cs-fixer`
    `Ruleset`: `$PROJECT_DIR$/.php-cs-fixer.dist.php`

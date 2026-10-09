@@ -13,6 +13,6 @@
 /.roave-backward-compatibility-check.xml export-ignore
 /codecov.yml                             export-ignore
 /lychee.toml                             export-ignore
-/phpstan.neon.dist                       export-ignore
+/phpstan.dist.neon                       export-ignore
 /phpunit.dist.xml                        export-ignore
 /rector.dist.php                         export-ignore
