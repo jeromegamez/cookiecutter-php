@@ -5,7 +5,7 @@
         "phpstan/phpstan-deprecation-rules": "^2.0.5",
         "phpstan/phpstan-phpunit": "^2.0.18",
         "phpstan/phpstan-strict-rules": "^2.0.12",
-        "phpunit/phpunit": "^13.3.2",
+        "phpunit/phpunit": "^13.4.4",
         "shipmonk/dead-code-detector": "^1.4.0",
         "tomasvotruba/type-coverage": "^2.3.6"
     },
